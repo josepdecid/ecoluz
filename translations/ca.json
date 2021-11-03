@@ -1,0 +1,22 @@
+{
+    "APP_NAME": "Eco-Llum",
+    "TEXT": {
+        "EXTREME_EXPENSIVE": "L'hora més cara",
+        "EXTREME_CHEAP": "L'hora més barata",
+        "MEAN_PRICE": "Preu mitjà"
+    },
+    "HINT": {
+        "SETTINGS_BUTTON": "Modifica les configuracions de l'aplicació.",
+        "SELECT_LOCATION": "Ubicació",
+        "SELECT_LANGUAGE": "Idioma de l'aplicació",
+        "SELECT_TIME_FORMAT": "Format horari"
+    },
+    "LOCATION": {
+        "PENINSULA_CANARIAS_BALEARES": "Península, Balears i Canàries",
+        "CEUTA_MELILLA": "Ceuta i Melilla"
+    },
+    "TITLE": {
+        "SETTINGS": "Configuració",
+        "ABOUT": "Sobre l'aplicació"
+    }
+}

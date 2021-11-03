@@ -1,0 +1,22 @@
+{
+    "APP_NAME": "Eco-Luz",
+    "TEXT": {
+        "EXTREME_EXPENSIVE": "",
+        "EXTREME_CHEAP": "",
+        "MEAN_PRICE": ""
+    },
+    "HINT": {
+        "SETTINGS_BUTTON": "Modifique a configuración da aplicación",
+        "SELECT_LOCATION": "Localización",
+        "SELECT_LANGUAGE": "Idioma da aplicación",
+        "SELECT_TIME_FORMAT": "Formato de tempo"
+    },
+    "LOCATION": {
+        "PENINSULA_CANARIAS_BALEARES": "Península, Baleares e Canarias",
+        "CEUTA_MELILLA": "Ceuta e Melilla"
+    },
+    "TITLE": {
+        "SETTINGS": "Configuración",
+        "ABOUT": "Sobre a aplicación"
+    }
+}
