@@ -1,0 +1,22 @@
+{
+    "APP_NAME": "Eko-Argia",
+    "TEXT": {
+        "EXTREME_EXPENSIVE": "",
+        "EXTREME_CHEAP": "",
+        "MEAN_PRICE": ""
+    },
+    "HINT": {
+        "SETTINGS_BUTTON": "Aldatu aplikazioaren ezarpenak",
+        "SELECT_LOCATION": "Hautatu zure kokapena",
+        "SELECT_LANGUAGE": "Hautatu aplikazioaren hizkuntza",
+        "SELECT_TIME_FORMAT": "Denbora formatua"
+    },
+    "LOCATION": {
+        "PENINSULA_CANARIAS_BALEARES": "Penintsula, Balearak eta Kanariarak",
+        "CEUTA_MELILLA": "Ceuta eta Melilla"
+    },
+    "TITLE": {
+        "SETTINGS": "Konfigurazioa",
+        "ABOUT": "Aplikazioari buruz"
+    }
+}
