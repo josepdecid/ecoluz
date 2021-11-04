@@ -24,9 +24,9 @@ export default function MeanPrice() {
                 {t('TEXT.MEAN_PRICE')}:
             </span>
             <div className="pt-6">
-                <div className={`text-teal mt-3`}>
+                <div className="text-teal">
                     {/*<SymbolIcon className="w-8 h-8" />*/}
-                    <span className="text-5xl font-bold">
+                    <span className="text-4xl font-bold">
                         {meanPrice.toFixed(4)}
                     </span>
                     <span className="text-3xl">

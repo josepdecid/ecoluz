@@ -5,8 +5,9 @@ import { useTranslation } from 'react-i18next'
 
 export default function AppBar() {
     const { t } = useTranslation('translation');
+    
     return (
-        <nav className="flex items-center justify-between bg-teal p-3">
+        <nav className="fixed w-full flex items-center justify-between bg-teal p-3">
             {/* App logo + name */}
             <div className="flex items-center flex-shrink-0 text-white mr-6">
                 <img

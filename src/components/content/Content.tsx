@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import CurrentTimeInfo from './CurrentTimeInfo';
 import ExtremeHour from './ExtremeHour';
 import MeanPrice from './MeanPrice';
+import RatesContainer from './tables/RatesContainer';
+import TableTimes from './tables/TableTimes';
+import Tabs from '../misc/Tabs';
 import axios from 'axios';
 import { updatePricesData } from '../../actions/pricesActions';
 import { useDispatch } from 'react-redux';
@@ -29,30 +32,50 @@ export default function Content() {
             });
     }, []);
 
-    if (!loaded) return <></>;
+    if (!loaded) return (
+        <span className="animate-spin">Loading</span>
+    );
 
     else {
         return (
-            <>
-                <div className="flex space-x-6 m-6">
+            <div className="w-screen px-4 pt-20 pb-4">
+                <div className="lg:flex lg:space-x-6">
                     <div className="flex-2">
                         <CurrentTimeInfo />
                     </div>
-                    <div className="flex-1 flex space-x-4">
-                        <div className="flex-1">
+
+                    <div className="md:hidden mt-4">
+                        <Tabs tabs={[
+                            {
+                                title: 'Mean',
+                                content: <MeanPrice />
+                            },
+                            {
+                                title: 'Min',
+                                content: <ExtremeHour extreme="min" />
+                            },
+                            {
+                                title: 'Max',
+                                content: <ExtremeHour extreme="max" />
+                            }
+                        ]} />
+                    </div>
+
+                    <div className="hidden md:flex flex-1 space-x-4">
+                        <div className="mt-10 flex-1">
                             <MeanPrice />
                         </div>
-                        <div className="flex-1">
+                        <div className="mt-10 flex-1">
                             <ExtremeHour extreme="min" />
                         </div>
-                        <div className="flex-1">
+                        <div className="mt-10 flex-1">
                             <ExtremeHour extreme="max" />
                         </div>
                     </div>
                 </div>
-                {/*<TableTimes />*/}
-                {/*<ExtremesInfo />*/}
-            </>
-        );
+
+                <RatesContainer />
+            </div>
+        )
     }
-};
+}
