@@ -39,9 +39,9 @@ export default function ExtremeHour({ extreme }) {
             </span>
             <div className="pt-6">
                 <span className="text-4xl font-bold text-teal-500">
-                    {formatTime(extremeHour.hour, 0, settings.timeFormat)}
+                    {formatTime(extremeHour.hour, undefined, settings.timeFormat)}
                     &nbsp;-&nbsp;
-                    {formatTime(extremeHour.hour + 1, 0, settings.timeFormat)}
+                    {formatTime(extremeHour.hour + 1, undefined, settings.timeFormat)}
                 </span>
                 <div className={`text-${backgroundColor} mt-3`}>
                     {/*<SymbolIcon className="w-8 h-8" />*/}

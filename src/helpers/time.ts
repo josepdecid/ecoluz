@@ -2,21 +2,21 @@ import { Color } from './constants';
 
 const numberNames = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
 
-export const formatTime = (hour: number, minute: number = 0, format: string = '24h') => {
+export const formatTime = (hour: number, minute: number, format: string = '24h') => {
     hour %= 24;
 
     const secondDigitMinutes = minute < 10 ? '0' : '';
 
     if (format === '24h') {
         const secondDigitHours = hour < 10 ? '0' : '';
-        return secondDigitHours + hour + ':' + secondDigitMinutes + minute;
+        return secondDigitHours + hour + (minute !== undefined ? ':' + secondDigitMinutes + minute : 'h');
     } else {
         const suffix = (hour < 12) ? 'am' : 'pm';
         hour %= 12;
         if (hour == 0) hour = 12;
 
         const secondDigitHours = hour < 10 ? '0' : '';
-        return secondDigitHours + hour + ':' + secondDigitMinutes + minute + suffix;
+        return secondDigitHours + hour + (minute !== undefined ? ':' + secondDigitMinutes + minute + suffix : 'h');
     }
 };
 

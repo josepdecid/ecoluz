@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 
+let timerInterval = null;
+
 export default function CurrentTimeInfo() {
     const state = useSelector(({ prices, settings }) => ({
         hourlyRates: prices.data as IPriceSlotData[],
@@ -30,13 +32,14 @@ export default function CurrentTimeInfo() {
 
     // Update timer to keep it on time
     useEffect(() => {
-        setInterval(() => {
+        if (timerInterval !== null) clearInterval(timerInterval)
+
+        timerInterval = setInterval(() => {
             setCurrentTime(getAndFormatTime())
             setCurrentRate(getRateByTime())
         }, 1000)
     }, [state])
 
-    const currentHour = new Date().getHours()
     const currentTimeBackgroundColor = getColorByIndex(ratesByPrice.indexOf(currentRate))
 
     return (
