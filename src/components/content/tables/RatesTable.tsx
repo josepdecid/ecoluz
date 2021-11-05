@@ -8,8 +8,7 @@ export default function RatesTable(props) {
     const { rates, thresholds } = props
 
     const timeFormat = useSelector(({ settings }) => settings.timeFormat) as ITimeFormat
-
-    const currentHour = new Date().getHours()
+    const currentHour = useSelector(({ prices }) => prices.currentHour) as number
 
     return (
         <div>
