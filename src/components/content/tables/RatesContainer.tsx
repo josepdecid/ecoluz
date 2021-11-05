@@ -37,12 +37,12 @@ export default function RatesContainer() {
                 <Tabs tabs={[
                     {
                         key: 'hours',
-                        title: <span>{t('SORT.BY_PRICE')}</span>,
+                        title: <span>{t('SORT.BY_HOUR')}</span>,
                         content: <RatesTable rates={ratesByHour} thresholds={thresholdPrices} />
                     },
                     {
                         key: 'prices',
-                        title: <span>{t('SORT.BY_HOUR')}</span>,
+                        title: <span>{t('SORT.BY_PRICE')}</span>,
                         content: <RatesTable rates={ratesByPrice} thresholds={thresholdPrices} />
                     }
                 ]} />

@@ -1,3 +1,5 @@
+import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/solid'
+
 import { ITimeFormat } from '../../../helpers/interfaces'
 import { formatTime } from '../../../helpers/time'
 import { useSelector } from 'react-redux'
@@ -17,33 +19,26 @@ export default function RatesTable(props) {
                 const isGreenHour = (price <= thresholds.min)
                 const isNow = (hour === currentHour)
 
-                let borderColor = 'black';
-                if (!isNow) {
-                    if (isRedHour) borderColor = 'red';
-                    else if (isGreenHour) borderColor = 'green';
-                }
-
-                let borderWidth = 0.4;
-                if (isNow) borderWidth = 5;
-                else if (isRedHour || isGreenHour) borderWidth = 2;
-
                 return (
                     <div
                         key={hour}
-                        className={`py-0.5 pr-3 m-0.5 rounded-md border-${borderColor} border-${borderWidth} bg-${color}`}
+                        className={`
+                            py-0.5 pr-3 m-0.5 bg-${color}-500 rounded-md
+                            ${isNow ? 'border-4 border-black' : ''}
+                            ${isRedHour ? 'border-2 border-red-700' : ''}
+                            ${isGreenHour ? 'border-2 border-green-700' : ''}
+                            ${currentHour > hour ? 'opacity-30' : ''}
+                        `}
                     >
-                        <div className="flex justify-between align-center px-2">
-                            <div className="align-center rounded-md">
-                                {/*<div className="w-6 mx-0.5">
-                        {isGreenHour && <CurrencyEuroIcon className="text-white w-18 h-18" />}
-                        {isRedHour && <CashIcon className="text-white w-18 h-18" />}
-                    </div>*/}
-                                <span className="text-xl px-1 font-bold">
+                        <div className="flex justify-between px-2 align-center">
+                            <div className="flex items-center flex-shrink-0 rounded-md">
+                                <span className="px-1 text-xl font-bold">
                                     {formatTime(hour, 0, timeFormat)}
                                 </span>
-                                {/*<MaterialCommunityIcons
-                        name={`clock-time-${getNumberName(hourIndex % 24)}-outline`}
-                    />*/}
+                                <div className="w-6 mx-0.5 text-black">
+                                    {isGreenHour && <CheckCircleIcon className="w-18 h-18" />}
+                                    {isRedHour && <ExclamationCircleIcon className="w-18 h-18" />}
+                                </div>
                             </div>
 
                             <div className="flex-between align-end">

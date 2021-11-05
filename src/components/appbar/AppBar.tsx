@@ -7,7 +7,7 @@ export default function AppBar() {
     const { t } = useTranslation('translation');
     
     return (
-        <nav className="fixed flex items-center justify-between w-full p-3 bg-teal-500">
+        <nav className="fixed z-10 flex items-center justify-between w-full p-3 bg-teal-500">
             {/* App logo + name */}
             <div className="flex items-center flex-shrink-0 mr-6 text-white">
                 <img
