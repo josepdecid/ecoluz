@@ -5,7 +5,6 @@ import { loadSavedSettings } from '../actions/settingsActions'
 import ratesReducer from './ratesReducer'
 import settingsReducer from './settingsReducer'
 
-// @ts-nocheck
 export const store = configureStore({
     reducer: {
         rates: ratesReducer,

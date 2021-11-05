@@ -1,4 +1,4 @@
-import { readJSON, writeJSON } from 'https://deno.land/x/flat@0.0.10/src/json.ts'
+import { readJSON, writeJSON } from 'https://deno.land/x/flat@0.0.10/src/json.ts';
 
 const filename = 'rates.json'
 const json = await readJSON(filename)
@@ -18,5 +18,6 @@ const filteredData = json.PVPC.map(({ Hora, PCB, CYM }) => {
     }
 })
 
-const newFilename = 'data/processed/' + day + '_' + month + '_' + year + '.json'
-await writeJSON(newFilename, filteredData)
+const newFilename = day + '_' + month + '_' + year + '.json'
+await writeJSON('data/processed' + newFilename, filteredData)
+await writeJSON('data/raw' + newFilename, json)
