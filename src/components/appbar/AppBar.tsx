@@ -7,19 +7,19 @@ export default function AppBar() {
     const { t } = useTranslation('translation');
     
     return (
-        <nav className="fixed w-full flex items-center justify-between bg-teal p-3">
+        <nav className="fixed flex items-center justify-between w-full p-3 bg-teal-500">
             {/* App logo + name */}
-            <div className="flex items-center flex-shrink-0 text-white mr-6">
+            <div className="flex items-center flex-shrink-0 mr-6 text-white">
                 <img
                     src={icon} alt={`${t('APP_NAME')} logo`}
                     className="w-10 h-10 mr-1"
                 />
-                <span className="font-bold text-2xl">
+                <span className="text-2xl font-bold">
                     {t('APP_NAME')}
                 </span>
             </div>
 
-            <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div className="flex-grow block w-full lg:flex lg:items-center lg:w-auto">
                 <div className="text-sm lg:flex-grow">
                     <SettingsButton />
                 </div>

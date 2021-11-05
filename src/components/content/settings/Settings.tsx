@@ -1,8 +1,9 @@
 import { languages, locations, timeFormats } from '../../../helpers/languages';
-import { setLanguageSetting, setLocationSetting, setTimeFormatSetting } from '../../../actions/settingsActions';
+import { setLanguageSetting, setLocationSetting, setTimeFormatSetting, toggleSettingsDrawer } from '../../../actions/settingsActions';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RadioGroup } from '@headlessui/react'
+import RadioInput from '../../misc/RadioInput';
+import { XCircleIcon } from '@heroicons/react/outline'
 import { useTranslation } from 'react-i18next';
 
 export default function Settings(props) {
@@ -16,77 +17,47 @@ export default function Settings(props) {
     }));
 
     return (
-        <div className="mx-6 my-4">
-            <span className="text-2xl font-bold my-3">
-                {t('TITLE.SETTINGS')}
-            </span>
+        <div>
+            <div className="fixed z-10 flex items-center justify-between w-full px-5 py-4 bg-teal-500 shadow-2xl">
+                <span className="text-2xl font-bold text-white">
+                    {t('SETTINGS.TITLE')}
+                </span>
+                <XCircleIcon
+                    className="w-8 h-8 ml-2 text-white cursor-pointer"
+                    onClick={() => dispatch(toggleSettingsDrawer())}
+                />
+            </div>
 
-            {/* LOCATION */}
-            <span className="font-lg">
-                {t('HINT.SELECT_LOCATION')}:
-            </span>
-            <RadioGroup
-                value={state.location}
-                onChange={(code: string) => dispatch(setLocationSetting(code))}
-            >
-                <RadioGroup.Label>Plan</RadioGroup.Label>
-                {locations.map(({ name, code }) => (
-                    <RadioGroup.Option key={code} value={code} className="mt-1">
-                        {({ checked }) => (
-                            <span className={checked ? 'bg-blue-200' : ''}>
-                                {t(name)}
-                            </span>
-                        )}
-                    </RadioGroup.Option>
-                ))}
-            </RadioGroup>
+            <div className="mx-4 mt-20 divide-y-2">
+                <div className="py-4">
+                    <RadioInput
+                        title="SETTINGS.SELECT_LOCATION"
+                        translate
+                        items={locations}
+                        value={state.location}
+                        onChange={(code: string) => dispatch(setLocationSetting(code))}
+                    />
+                </div>
 
-            {/* LANGUAGE */}
-            <span className="font-lg">
-                {t('HINT.SELECT_LANGUAGE')}:
-            </span>
-            <RadioGroup
-                value={state.language}
-                onChange={(code: string) => dispatch(setLanguageSetting(code))}
-            >
-                <RadioGroup.Label>Plan</RadioGroup.Label>
-                {languages.map(({ name, code }) => (
-                    <RadioGroup.Option key={code} value={code} className="mt-1">
-                        {({ checked }) => (
-                            <span className={checked ? 'bg-blue-200' : ''}>
-                                {name}
-                            </span>
-                        )}
-                    </RadioGroup.Option>
-                ))}
-            </RadioGroup>
+                <div className="py-4">
+                    <RadioInput
+                        title="SETTINGS.SELECT_LANGUAGE"
+                        translate
+                        items={languages}
+                        value={state.language}
+                        onChange={(code: string) => dispatch(setLanguageSetting(code))}
+                    />
+                </div>
 
-            {/* TIME FORMAT */}
-            <span className="font-lg">
-                {t('HINT.SELECT_TIME_FORMAT')}:
-            </span>
-            <RadioGroup
-                value={state.timeFormat}
-                onChange={(code: string) => dispatch(setTimeFormatSetting(code))}
-            >
-                <RadioGroup.Label>Plan</RadioGroup.Label>
-                {timeFormats.map(({ name, code }) => (
-                    <RadioGroup.Option key={code} value={code} className="mt-1">
-                        {({ checked }) => (
-                            <span className={checked ? 'bg-blue-200' : ''}>
-                                {name}
-                            </span>
-                        )}
-                    </RadioGroup.Option>
-                ))}
-            </RadioGroup>
-
-            {/*<span fontSize="2xl" bold my="3">{t('TITLE.ABOUT')}</span>
-
-            <IconButton
-                icon={<Icon as={<AntDesign name="github" color="black" />} size={20} />}
-                onPress={() => Linking.openURL('https://github.com/josepdecid/eco-luz')}
-            />*/}
+                <div className="py-4">
+                    <RadioInput
+                        title="SETTINGS.SELECT_TIME_FORMAT"
+                        items={timeFormats}
+                        value={state.timeFormat}
+                        onChange={(code: string) => dispatch(setTimeFormatSetting(code))}
+                    />
+                </div>
+            </div>
         </div>
     );
 };

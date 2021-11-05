@@ -19,12 +19,12 @@ export default function MeanPrice() {
     const meanPrice = sumPrices / rates.length;
 
     return (
-        <div className="text-center space-y-2 divide-y divide-gray divide-opacity-50">
-            <span className="uppercase text-lg font-bold pb-2">
+        <div className="space-y-2 text-center divide-y divide-gray divide-opacity-50">
+            <span className="pb-2 text-lg font-bold uppercase">
                 {t('TEXT.MEAN_PRICE')}:
             </span>
             <div className="pt-6">
-                <div className="text-teal">
+                <div className="text-teal-500">
                     {/*<SymbolIcon className="w-8 h-8" />*/}
                     <span className="text-4xl font-bold">
                         {meanPrice.toFixed(4)}

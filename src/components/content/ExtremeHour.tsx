@@ -33,12 +33,12 @@ export default function ExtremeHour({ extreme }) {
     }
 
     return (
-        <div className="text-center space-y-2 divide-y divide-gray divide-opacity-50">
-            <span className="uppercase text-lg font-bold pb-2">
+        <div className="space-y-2 text-center divide-y divide-gray divide-opacity-50">
+            <span className="pb-2 text-lg font-bold uppercase">
                 {t(text)}:
             </span>
             <div className="pt-6">
-                <span className="text-4xl font-bold text-teal">
+                <span className="text-4xl font-bold text-teal-500">
                     {formatTime(extremeHour.hour, 0, settings.timeFormat)}
                     &nbsp;-&nbsp;
                     {formatTime(extremeHour.hour + 1, 0, settings.timeFormat)}

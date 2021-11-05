@@ -1,0 +1,18 @@
+KEY,BA,CA,ES,GA
+
+APP_NAME,,EcoLlum,EcoLuz,
+
+TEXT.EXTREME_EXPENSIVE,,L'hora més cara,La hora más cara,
+TEXT.EXTREME_CHEAP,,L'hora més barata,La hora más barata,
+TEXT.MEAN_PRICE,,Preu mitjà,Precio medio,
+
+SETTINGS.TITLE,,Configuració,Configuración,
+SETTINGS.SELECT_LOCATION,,La teva ubicació,Tu ubicación,
+SETTINGS.SELECT_LANGUAGE,,Idioma de l'aplicació,Idioma de la aplicación,
+SETTINGS.SELECT_TIME_FORMAT,,Format de l'hora,Formato de la hora,
+
+LOCATION.PENINSULA_CANARIAS_BALEARES,,Península Canaries i Balears, Península Canarias y Baleares,
+LOCATION.CEUTA_MELILLA,,Ceuta i Melilla, Ceuta y Melilla,
+
+SORT.BY_HOUR,,Per hora,Por hora,
+SORT.BY_PRICE,,Per preu, Por precio,

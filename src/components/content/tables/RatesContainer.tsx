@@ -1,11 +1,13 @@
-import { ILocationID, IPriceSlotData, ITimeFormat } from '../../../helpers/interfaces';
+import { ILocationID, IPriceSlotData } from '../../../helpers/interfaces'
 
 import RatesTable from './RatesTable'
 import Tabs from '../../misc/Tabs'
-import { getColorByIndex } from '../../../helpers/time';
+import { getColorByIndex } from '../../../helpers/time'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 export default function RatesContainer() {
+    const { t } = useTranslation();
     const state = useSelector(({ prices, settings }) => ({
         hourlyRates: prices.data as IPriceSlotData[],
 
@@ -31,22 +33,25 @@ export default function RatesContainer() {
 
     return (
         <>
-            <div className="md:hidden mt-4">
+            <div className="mt-4 md:hidden">
                 <Tabs tabs={[
                     {
-                        title: 'Por Horas',
+                        key: 'hours',
+                        title: <span>{t('SORT.BY_PRICE')}</span>,
                         content: <RatesTable rates={ratesByHour} thresholds={thresholdPrices} />
                     },
                     {
-                        title: 'Por Precio',
+                        key: 'prices',
+                        title: <span>{t('SORT.BY_HOUR')}</span>,
                         content: <RatesTable rates={ratesByPrice} thresholds={thresholdPrices} />
                     }
                 ]} />
             </div>
 
-            {/*<div className="hidden md:flex space-x-4">
-                <RatesTable />
-            </div>*/}
+            <div className="hidden mt-4 space-x-4 md:flex justify-items-center">
+                <RatesTable rates={ratesByHour} thresholds={thresholdPrices} />
+                <RatesTable rates={ratesByPrice} thresholds={thresholdPrices} />
+            </div>
         </>
     )
 }

@@ -1,10 +1,10 @@
+import { ArrowCircleDownIcon, ArrowCircleUpIcon, PresentationChartLineIcon } from '@heroicons/react/outline';
 import { useEffect, useState } from 'react';
 
 import CurrentTimeInfo from './CurrentTimeInfo';
 import ExtremeHour from './ExtremeHour';
 import MeanPrice from './MeanPrice';
 import RatesContainer from './tables/RatesContainer';
-import TableTimes from './tables/TableTimes';
 import Tabs from '../misc/Tabs';
 import axios from 'axios';
 import { updatePricesData } from '../../actions/pricesActions';
@@ -44,31 +44,34 @@ export default function Content() {
                         <CurrentTimeInfo />
                     </div>
 
-                    <div className="md:hidden mt-4">
+                    <div className="mt-4 md:hidden">
                         <Tabs tabs={[
                             {
-                                title: 'Mean',
+                                key: 'mean',
+                                title: <PresentationChartLineIcon className="w-8 h-8 mx-auto" />,
                                 content: <MeanPrice />
                             },
                             {
-                                title: 'Min',
+                                key: 'min',
+                                title: <ArrowCircleDownIcon className="w-8 h-8 mx-auto" />,
                                 content: <ExtremeHour extreme="min" />
                             },
                             {
-                                title: 'Max',
+                                key: 'max',
+                                title: <ArrowCircleUpIcon className="w-8 h-8 mx-auto" />,
                                 content: <ExtremeHour extreme="max" />
                             }
                         ]} />
                     </div>
 
-                    <div className="hidden md:flex flex-1 space-x-4">
-                        <div className="mt-10 flex-1">
+                    <div className="flex-1 hidden space-x-4 md:flex">
+                        <div className="flex-1 mt-10">
                             <MeanPrice />
                         </div>
-                        <div className="mt-10 flex-1">
+                        <div className="flex-1 mt-10">
                             <ExtremeHour extreme="min" />
                         </div>
-                        <div className="mt-10 flex-1">
+                        <div className="flex-1 mt-10">
                             <ExtremeHour extreme="max" />
                         </div>
                     </div>

@@ -10,17 +10,16 @@ export default function Drawer({ children, isOpen, setIsOpen }) {
         >
             <section
                 className={
-                    " w-screen max-w-lg right-0 absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " +
+                    " w-screen max-w-lg right-0 absolute bg-white h-full shadow-2xl delay-400 duration-500 ease-in-out transition-all transform  " +
                     (isOpen ? " translate-x-0 " : " translate-x-full ")
                 }
             >
-                <article className="relative w-screen max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full">
-                    <header className="p-4 font-bold text-lg">Header</header>
+                <article className="relative flex flex-col w-screen h-full max-w-lg pb-10 space-y-6 overflow-y-scroll">
                     {children}
                 </article>
             </section>
             <section
-                className=" w-screen h-full cursor-pointer "
+                className="w-screen h-full cursor-pointer "
                 onClick={() => {
                     setIsOpen(false)
                 }}
