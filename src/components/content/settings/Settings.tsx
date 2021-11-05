@@ -1,16 +1,16 @@
 import { languages, locations, timeFormats } from '../../../helpers/languages';
 import { setLanguageSetting, setLocationSetting, setTimeFormatSetting, toggleSettingsDrawer } from '../../../actions/settingsActions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../../reducers/store';
 
 import RadioInput from '../../misc/RadioInput';
-import { XCircleIcon } from '@heroicons/react/outline'
+import { XCircleIcon } from '@heroicons/react/outline';
 import { useTranslation } from 'react-i18next';
 
-export default function Settings(props) {
+export default function Settings() {
     const { t } = useTranslation('translation');
 
-    const dispatch = useDispatch();
-    const state = useSelector(({ settings }) => ({
+    const dispatch = useAppDispatch();
+    const state = useAppSelector(({ settings }) => ({
         location: settings.location,
         language: settings.language,
         timeFormat: settings.timeFormat

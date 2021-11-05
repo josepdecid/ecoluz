@@ -1,18 +1,13 @@
-import { CashIcon, CurrencyEuroIcon } from '@heroicons/react/outline';
-import { ILocationID, IPriceSlotData, ITimeFormat } from '../../helpers/interfaces';
-
-import { Color } from '../../helpers/constants';
-import { formatTime } from '../../helpers/time';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../reducers/store';
 import { useTranslation } from 'react-i18next';
 
 export default function MeanPrice() {
     const { t } = useTranslation();
 
-    const rates = useSelector(({ prices }) => prices.data) as IPriceSlotData[]
-    const settings = useSelector(({ settings }) => ({
-        location: settings.location as ILocationID,
-        timeFormat: settings.timeFormat as ITimeFormat,
+    const rates = useAppSelector(({ rates }) => rates.slots)
+    const settings = useAppSelector(({ settings }) => ({
+        location: settings.location,
+        timeFormat: settings.timeFormat,
     }))
 
     const sumPrices = rates.reduce((acc, rate) => acc + rate.price[settings.location], 0)

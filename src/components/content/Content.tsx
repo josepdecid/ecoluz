@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../reducers/store';
 import { useEffect, useState } from 'react';
 
 import InformationContainer from './info/InformationContainer';
@@ -8,8 +8,8 @@ import { updatePricesData } from '../../actions/pricesActions';
 
 export default function Content() {
     const [loaded, setLoaded] = useState(false);
-    const dispatch = useDispatch();
-    const currentDay = useSelector(({ prices }) => prices.currentDay) as number;
+    const dispatch = useAppDispatch();
+    const currentDay = useAppSelector(({ rates }) => rates.currentDay) as number;
 
     useEffect(() => {
         // Fetch today's date

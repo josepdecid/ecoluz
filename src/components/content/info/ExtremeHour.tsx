@@ -1,16 +1,16 @@
-import { CashIcon, CurrencyEuroIcon } from '@heroicons/react/outline';
-import { ILocationID, IPriceSlotData, ITimeFormat } from '../../../helpers/interfaces';
+import { ILocationID, IRatesData, ITimeFormat } from '../../../helpers/interfaces';
 
 import { Color } from '../../../helpers/constants';
 import { formatTime } from '../../../helpers/time';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../reducers/store';
 import { useTranslation } from 'react-i18next';
 
-export default function ExtremeHour({ extreme }) {
-    const { t } = useTranslation();
+export default function ExtremeHour(props: any) {
+    const { extreme } = props
+    const { t } = useTranslation()
 
-    const rates = useSelector(({ prices }) => prices.data) as IPriceSlotData[]
-    const settings = useSelector(({ settings }) => ({
+    const rates = useAppSelector(({ rates }) => rates.slots) as IRatesData[]
+    const settings = useAppSelector(({ settings }) => ({
         location: settings.location as ILocationID,
         timeFormat: settings.timeFormat as ITimeFormat,
     }))
@@ -39,9 +39,9 @@ export default function ExtremeHour({ extreme }) {
             </span>
             <div className="pt-6">
                 <span className="text-4xl font-bold text-teal-500">
-                    {formatTime(extremeHour.hour, undefined, settings.timeFormat)}
+                    {formatTime(extremeHour.hour, -1, settings.timeFormat)}
                     &nbsp;-&nbsp;
-                    {formatTime(extremeHour.hour + 1, undefined, settings.timeFormat)}
+                    {formatTime(extremeHour.hour + 1, -1, settings.timeFormat)}
                 </span>
                 <div className={`text-${backgroundColor} mt-3`}>
                     {/*<SymbolIcon className="w-8 h-8" />*/}

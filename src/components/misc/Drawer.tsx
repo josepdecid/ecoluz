@@ -1,4 +1,7 @@
-export default function Drawer({ children, isOpen, setIsOpen }) {
+export default function Drawer(
+    { children, isOpen, setIsOpen }
+        : { children: any, isOpen: boolean, setIsOpen: any }
+) {
     return (
         <main
             className={

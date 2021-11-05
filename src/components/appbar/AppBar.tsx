@@ -1,6 +1,5 @@
 import { CogIcon } from '@heroicons/react/outline'
 import SettingsButton from './SettingsButton';
-import icon from '/assets/favicon.png'
 import { useTranslation } from 'react-i18next'
 
 export default function AppBar() {
@@ -10,7 +9,7 @@ export default function AppBar() {
         <nav className="fixed z-10 flex items-center justify-between w-full p-3 bg-teal-500">
             <div className="flex items-center flex-shrink-0 mr-6 text-white">
                 <img
-                    src={icon} alt={`${t('APP_NAME')} logo`}
+                    src="/assets/favicon.png" alt={`${t('APP_NAME')} logo`}
                     className="w-10 h-10 mr-1"
                 />
                 <span className="text-2xl font-bold">

@@ -1,9 +1,9 @@
 import { CogIcon } from '@heroicons/react/outline'
 import { toggleSettingsDrawer } from '../../actions/settingsActions'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../reducers/store'
 
 export default function SettingsButton() {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     return (
         <a>

@@ -1,11 +1,10 @@
+import { ITabProps } from '../../helpers/interfaces';
 import { Tab } from '@headlessui/react'
+import { classNames } from '../../helpers/constants';
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+export default function Tabs(props: any) {
+    const { tabs }: { tabs: ITabProps[] } = props;
 
-export default function Tabs(props) {
-    const { tabs } = props;
     return (
         <div className="shadow-2xl rounded-xl">
             <Tab.Group>

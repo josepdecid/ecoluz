@@ -1,21 +1,21 @@
-import { ILocationID, IPriceSlotData, ITimeFormat } from '../../../helpers/interfaces';
-import { formatTime, getColorByIndex } from '../../../helpers/time';
-import { updateCurrentDay, updateCurrentHour } from '../../../actions/pricesActions';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { ILocationID, IRatesData, ITimeFormat } from '../../../helpers/interfaces'
+import { formatTime, getColorByIndex } from '../../../helpers/time'
+import { updateCurrentDay, updateCurrentHour } from '../../../actions/pricesActions'
+import { useAppDispatch, useAppSelector } from '../../../reducers/store'
+import { useEffect, useState } from 'react'
 
-let timerInterval = null;
+let timerInterval: any = null;
 
 export default function CurrentTimeInfo() {
-    const dispatch = useDispatch()
-    const state = useSelector(({ prices, settings }) => ({
-        hourlyRates: prices.data as IPriceSlotData[],
+    const dispatch = useAppDispatch()
+    const state = useAppSelector(({ rates, settings }) => ({
+        hourlyRates: rates.slots,
 
-        currentHour: prices.currentHour as number,
-        currentDay: prices.currentDay as number,
+        currentHour: rates.currentHour,
+        currentDay: rates.currentDay,
 
-        locationCode: settings.location as ILocationID,
-        timeFormat: settings.timeFormat as ITimeFormat,
+        locationCode: settings.location,
+        timeFormat: settings.timeFormat,
     }))
 
     const ratesByPrice = [...state.hourlyRates].sort((a, b) =>
@@ -33,6 +33,8 @@ export default function CurrentTimeInfo() {
 
     const [currentTime, setCurrentTime] = useState(getAndFormatTime())
     const [currentRate, setCurrentRate] = useState(getRateByTime())
+
+    console.log(currentRate)
 
     // Update timer to keep it on time
     useEffect(() => {

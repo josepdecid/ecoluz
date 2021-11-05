@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from './reducers/store'
 
 import AppBar from './components/appbar/AppBar'
 import Content from './components/content/Content'
@@ -11,8 +11,8 @@ import { useTranslation } from 'react-i18next'
 export default function App() {
     const { i18n } = useTranslation();
 
-    const dispatch = useDispatch();
-    const state = useSelector(({ settings }) => ({
+    const dispatch = useAppDispatch();
+    const state = useAppSelector(({ settings }) => ({
         settingsOpen: settings.settingsOpen,
         language: settings.language
     }));

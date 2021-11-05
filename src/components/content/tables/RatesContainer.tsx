@@ -1,17 +1,14 @@
-import { ILocationID, IPriceSlotData } from '../../../helpers/interfaces'
-
 import RatesTable from './RatesTable'
 import Tabs from '../../misc/Tabs'
 import { getColorByIndex } from '../../../helpers/time'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../../reducers/store'
 import { useTranslation } from 'react-i18next'
 
 export default function RatesContainer() {
     const { t } = useTranslation();
-    const state = useSelector(({ prices, settings }) => ({
-        hourlyRates: prices.data as IPriceSlotData[],
-
-        locationCode: settings.location as ILocationID,
+    const state = useAppSelector(({ rates, settings }) => ({
+        hourlyRates: rates.slots,
+        locationCode: settings.location,
     }));
 
     const ratesByLocation = state.hourlyRates.map(({ hour, price }) => {

@@ -9,14 +9,14 @@ export const formatTime = (hour: number, minute: number, format: string = '24h')
 
     if (format === '24h') {
         const secondDigitHours = hour < 10 ? '0' : '';
-        return secondDigitHours + hour + (minute !== undefined ? ':' + secondDigitMinutes + minute : 'h');
+        return secondDigitHours + hour + (minute >= 0 ? ':' + secondDigitMinutes + minute : 'h');
     } else {
         const suffix = (hour < 12) ? 'am' : 'pm';
         hour %= 12;
         if (hour == 0) hour = 12;
 
         const secondDigitHours = hour < 10 ? '0' : '';
-        return secondDigitHours + hour + (minute !== undefined ? ':' + secondDigitMinutes + minute + suffix : 'h');
+        return secondDigitHours + hour + (minute >= 0 ? ':' + secondDigitMinutes + minute + suffix : 'h');
     }
 };
 

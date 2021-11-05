@@ -1,14 +1,14 @@
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/solid'
+import { IRatesData, ISlotData } from '../../../helpers/interfaces'
 
-import { ITimeFormat } from '../../../helpers/interfaces'
 import { formatTime } from '../../../helpers/time'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../../reducers/store'
 
-export default function RatesTable(props) {
-    const { rates, thresholds } = props
+export default function RatesTable(props: any) {
+    const { rates, thresholds }: { rates: Array<ISlotData>, thresholds: any } = props
 
-    const timeFormat = useSelector(({ settings }) => settings.timeFormat) as ITimeFormat
-    const currentHour = useSelector(({ prices }) => prices.currentHour) as number
+    const timeFormat = useAppSelector(({ settings }) => settings.timeFormat)
+    const currentHour = useAppSelector(({ rates }) => rates.currentHour)
 
     return (
         <div>
@@ -53,5 +53,5 @@ export default function RatesTable(props) {
                 )
             })}
         </div>
-    );
+    )
 }
