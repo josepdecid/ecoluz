@@ -1,8 +1,8 @@
 import { CashIcon, CurrencyEuroIcon } from '@heroicons/react/outline';
-import { ILocationID, IPriceSlotData, ITimeFormat } from '../../helpers/interfaces';
+import { ILocationID, IPriceSlotData, ITimeFormat } from '../../../helpers/interfaces';
 
-import { Color } from '../../helpers/constants';
-import { formatTime } from '../../helpers/time';
+import { Color } from '../../../helpers/constants';
+import { formatTime } from '../../../helpers/time';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 

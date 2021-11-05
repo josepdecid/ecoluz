@@ -1,5 +1,5 @@
-import { ILocationID, IPriceSlotData, ITimeFormat } from '../../helpers/interfaces';
-import { formatTime, getColorByIndex } from '../../helpers/time';
+import { ILocationID, IPriceSlotData, ITimeFormat } from '../../../helpers/interfaces';
+import { formatTime, getColorByIndex } from '../../../helpers/time';
 import { useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
