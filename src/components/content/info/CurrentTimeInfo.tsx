@@ -1,4 +1,3 @@
-import { ILocationID, IRatesData, ITimeFormat } from '../../../helpers/interfaces'
 import { formatTime, getColorByIndex } from '../../../helpers/time'
 import { updateCurrentDay, updateCurrentHour } from '../../../actions/pricesActions'
 import { useAppDispatch, useAppSelector } from '../../../reducers/store'
