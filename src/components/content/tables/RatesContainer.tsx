@@ -48,9 +48,21 @@ export default function RatesContainer() {
                 ]} />
             </div>
 
-            <div className="hidden mt-4 space-x-4 md:flex justify-items-center">
-                <RatesTable rates={ratesByHour} thresholds={thresholdPrices} />
-                <RatesTable rates={ratesByPrice} thresholds={thresholdPrices} />
+            <div className={`
+                    items-center hidden w-full grid-cols-2 mt-4 md:grid place-items-center
+            `}>
+                <div className="space-y-2 text-center divide-y divide-gray divide-opacity-50">
+                    <span className="pb-2 text-lg font-bold uppercase">
+                        {t('SORT.BY_HOUR')}:
+                    </span>
+                    <RatesTable rates={ratesByHour} thresholds={thresholdPrices} />
+                </div>
+                <div className="space-y-2 text-center divide-y divide-gray divide-opacity-50">
+                    <span className="pb-2 text-lg font-bold uppercase">
+                        {t('SORT.BY_PRICE')}:
+                    </span>
+                    <RatesTable rates={ratesByPrice} thresholds={thresholdPrices} />
+                </div>
             </div>
         </>
     )

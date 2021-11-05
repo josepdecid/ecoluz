@@ -1,14 +1,17 @@
 import { ILocationID, IPriceSlotData, ITimeFormat } from '../../../helpers/interfaces';
 import { formatTime, getColorByIndex } from '../../../helpers/time';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { updateCurrentDay } from '../../../actions/pricesActions';
 
 let timerInterval = null;
 
 export default function CurrentTimeInfo() {
+    const dispatch = useDispatch()
     const state = useSelector(({ prices, settings }) => ({
         hourlyRates: prices.data as IPriceSlotData[],
+        currentDay: prices.currentDay as number,
 
         locationCode: settings.location as ILocationID,
         timeFormat: settings.timeFormat as ITimeFormat,
@@ -37,6 +40,11 @@ export default function CurrentTimeInfo() {
         timerInterval = setInterval(() => {
             setCurrentTime(getAndFormatTime())
             setCurrentRate(getRateByTime())
+
+            const currentDay = new Date().getDate()
+            if (currentDay !== state.currentDay) {
+                dispatch(updateCurrentDay(currentDay))
+            }
         }, 1000)
     }, [state])
 
