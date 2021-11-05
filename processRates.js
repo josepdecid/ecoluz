@@ -19,5 +19,5 @@ const filteredData = json.PVPC.map(({ Hora, PCB, CYM }) => {
 })
 
 const newFilename = day + '_' + month + '_' + year + '.json'
-await writeJSON('data/processed' + newFilename, filteredData)
-await writeJSON('data/raw' + newFilename, json)
+await writeJSON('data/processed/' + newFilename, filteredData)
+await writeJSON('data/raw/' + newFilename, json)
