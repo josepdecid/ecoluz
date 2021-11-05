@@ -1,6 +1,7 @@
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/solid'
 import { IRatesData, ISlotData } from '../../../helpers/interfaces'
 
+import { classNames } from '../../../helpers/constants'
 import { formatTime } from '../../../helpers/time'
 import { useAppSelector } from '../../../reducers/store'
 
@@ -21,13 +22,18 @@ export default function RatesTable(props: any) {
                 return (
                     <div
                         key={hour}
-                        className={`
-                            py-0.5 pr-3 m-0.5 bg-${color}-500 rounded-md
-                            ${isNow ? 'border-4 border-black' : ''}
-                            ${isRedHour ? 'border-2 border-red-700' : ''}
-                            ${isGreenHour ? 'border-2 border-green-700' : ''}
-                            ${currentHour > hour ? 'opacity-30' : ''}
-                        `}
+                        className={classNames(
+                            'py-0.5 pr-3 m-0.5 bg-red-500 rounded-md',
+                            isNow ? 'border-4 border-black' : '',
+                            isRedHour ? 'border-2 border-red-700' : '',
+                            isGreenHour ? 'border-2 border-green-700' : '',
+                            currentHour > hour ? 'opacity-30' : '',
+                            color === 'red'
+                                ? 'bg-red-500' :
+                                color === 'yellow'
+                                    ? 'bg-yellow-500'
+                                    : 'bg-green-500'
+                        )}
                     >
                         <div className="flex justify-between px-2 align-center">
                             <div className="flex items-center flex-shrink-0 rounded-md">
@@ -52,6 +58,6 @@ export default function RatesTable(props: any) {
                     </div>
                 )
             })}
-        </div>
+        </div >
     )
 }

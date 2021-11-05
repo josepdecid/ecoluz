@@ -44,7 +44,6 @@ export default function ExtremeHour(props: any) {
                     {formatTime(extremeHour.hour + 1, -1, settings.timeFormat)}
                 </span>
                 <div className={`text-${backgroundColor} mt-3`}>
-                    {/*<SymbolIcon className="w-8 h-8" />*/}
                     <span className="text-3xl font-bold">
                         {extremeHour.price[settings.location].toFixed(4)}
                     </span>
