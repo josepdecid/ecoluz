@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 export default function AppBar() {
     const { t } = useTranslation('translation');
-    
+
     return (
         <nav className="fixed z-10 flex items-center justify-between w-full p-3 bg-teal-500">
             {/* App logo + name */}
@@ -19,10 +19,8 @@ export default function AppBar() {
                 </span>
             </div>
 
-            <div className="flex-grow block w-full lg:flex lg:items-center lg:w-auto">
-                <div className="text-sm lg:flex-grow">
-                    <SettingsButton />
-                </div>
+            <div className="lg:flex lg:items-center lg:w-auto">
+                <SettingsButton />
             </div>
         </nav>
     )
