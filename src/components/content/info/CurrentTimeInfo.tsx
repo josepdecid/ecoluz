@@ -34,8 +34,6 @@ export default function CurrentTimeInfo() {
     const [currentTime, setCurrentTime] = useState(getAndFormatTime())
     const [currentRate, setCurrentRate] = useState(getRateByTime())
 
-    console.log(currentRate)
-
     // Update timer to keep it on time
     useEffect(() => {
         if (timerInterval !== null) clearInterval(timerInterval)

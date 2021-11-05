@@ -4,9 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "serve": "vite preview"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",

@@ -28,7 +28,6 @@ module.exports = {
         800: "#14302c",
         900: "#0a1816"
       },
-      // Zone colors
       red: {
         100: "#ffdbd6",
         200: "#ffb7ac",
