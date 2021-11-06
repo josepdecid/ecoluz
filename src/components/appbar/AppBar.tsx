@@ -8,7 +8,7 @@ export default function AppBar() {
         <nav className="fixed z-10 flex items-center justify-between w-full p-3 bg-teal-500">
             <div className="flex items-center flex-shrink-0 mr-6 text-white">
                 <img
-                    src="/favicon.ico" alt={`${t('APP_NAME')} logo`}
+                    src="/ecoluz/favicon.ico" alt={`${t('APP_NAME')} logo`}
                     className="w-10 h-10 mr-1"
                 />
                 <span className="text-2xl font-bold">

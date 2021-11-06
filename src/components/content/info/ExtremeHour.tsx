@@ -1,6 +1,6 @@
+import { Color, classNames } from '../../../helpers/constants';
 import { ILocationID, IRatesData, ITimeFormat } from '../../../helpers/interfaces';
 
-import { Color } from '../../../helpers/constants';
 import { formatTime } from '../../../helpers/time';
 import { useAppSelector } from '../../../reducers/store';
 import { useTranslation } from 'react-i18next';
@@ -23,12 +23,12 @@ export default function ExtremeHour(props: any) {
         }
     }, rates[0])
 
-    let backgroundColor, text
+    let fontColor, text
     if (extreme === 'max') {
-        backgroundColor = Color.Red
+        fontColor = 'text-red-500'
         text = 'TEXT.EXTREME_EXPENSIVE'
     } else {
-        backgroundColor = Color.Green
+        fontColor = 'text-green-500'
         text = 'TEXT.EXTREME_CHEAP'
     }
 
@@ -43,7 +43,7 @@ export default function ExtremeHour(props: any) {
                     &nbsp;-&nbsp;
                     {formatTime(extremeHour.hour + 1, -1, settings.timeFormat)}
                 </span>
-                <div className={`text-${backgroundColor} mt-3`}>
+                <div className={`mt-3 ${fontColor}`}>
                     <span className="text-3xl font-bold">
                         {extremeHour.price[settings.location].toFixed(4)}
                     </span>

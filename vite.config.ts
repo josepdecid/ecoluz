@@ -13,7 +13,7 @@ export default defineConfig({
       manifest: {
         name: 'EcoLuz',
         short_name: 'EcoLuz',
-        theme_color: '#60CCC2',
+        theme_color: '#1e4741',
         icons: [
           {
             src: 'pwa-192x192.png', // <== don't add slash, for testing
