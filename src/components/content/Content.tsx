@@ -13,10 +13,9 @@ export default function Content() {
 
     useEffect(() => {
         // Fetch today's date
-        const baseUrl = 'https://raw.githubusercontent.com/josepdecid/eco-luz/main/data/processed';
+        const baseUrl = 'https://raw.githubusercontent.com/josepdecid/ecoluz/main/data/processed';
         const [month, day, year] = new Date().toLocaleDateString().split('/');
-        // const fileUrl = `${baseUrl}/${day}_${month}_${year}.json`;
-        const fileUrl = baseUrl + '/01_11_21.json'
+        const fileUrl = `${baseUrl}/${day}_${month}_${year}.json`;
 
         axios.get(fileUrl)
             .then(res => {

@@ -11,7 +11,7 @@ const year = date[2]
 
 const filteredData = json.PVPC.map(({ Hora, PCB, CYM }) => {
     return {
-        hour: Hora.split('-')[0],
+        hour: parseInt(Hora.split('-')[0]),
         price: {
             PCB: parseFloat(PCB.replace(',', '.')) / 1000,
             CYM: parseFloat(CYM.replace(',', '.')) / 1000
