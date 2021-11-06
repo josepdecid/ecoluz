@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../reducers/store';
 import { useEffect, useState } from 'react';
 
+import { IRatesData } from '../../helpers/interfaces';
 import InformationContainer from './info/InformationContainer';
 import RatesContainer from './tables/RatesContainer';
 import axios from 'axios';
@@ -24,19 +25,32 @@ export default function Content() {
         const year = date.getFullYear()
 
         const baseUrl = 'https://raw.githubusercontent.com/josepdecid/ecoluz/main/data/processed'
-        const fileUrl = `${baseUrl}/${dayAux}${day}_${monthAux}${month}_${year}.json`
+        const fileName = `${dayAux}${day}_${monthAux}${month}_${year}`
+        const fileUrl = `${baseUrl}/${fileName}.json`
 
-        axios.get(fileUrl)
-            .then(res => {
-                const rates = res.data;
-                localStorage.setItem('rates', JSON.stringify(rates))
-                dispatch(updatePricesData(rates));
-                setLoaded(true);
-            })
-            .catch(err => {
-                console.log(err);
-                // setError(JSON.stringify(err));
-            });
+        const ratesDay = localStorage.getItem('ratesDay')
+        if (fileName === ratesDay) {
+            console.log('Rates for today fetched previously. Not necessary to download the data again.')
+            const rates = JSON.parse(localStorage.getItem('rates')!) as IRatesData[]
+            dispatch(updatePricesData(rates));
+            setLoaded(true);
+        } else {
+            console.log('Rates are not stored locally, downloading from ' + fileUrl)
+            axios.get(fileUrl)
+                .then(res => {
+                    const rates = res.data;
+
+                    localStorage.setItem('rates', JSON.stringify(rates))
+                    localStorage.setItem('ratesDay', fileName)
+
+                    dispatch(updatePricesData(rates));
+                    setLoaded(true);
+                })
+                .catch(err => {
+                    console.log(err);
+                    // TODO: Set message error if connection unavailable
+                });
+        }
     }, [currentDay]);
 
     if (!loaded) return (
