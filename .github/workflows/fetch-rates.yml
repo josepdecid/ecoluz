@@ -1,7 +1,7 @@
 name: Fetch Rates
 on:
   schedule:
-    - cron: '25 00 * * *'
+    - cron: '00 07 * * *'
 jobs:
   scheduled:
     runs-on: ubuntu-latest
