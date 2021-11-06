@@ -13,13 +13,24 @@ export default function Content() {
 
     useEffect(() => {
         // Fetch today's date
-        const baseUrl = 'https://raw.githubusercontent.com/josepdecid/ecoluz/main/data/processed';
-        const [month, day, year] = new Date().toLocaleDateString().split('/');
-        const fileUrl = `${baseUrl}/${day}_${month}_${year}.json`;
+        const date = new Date()
+
+        const day = date.getDate()
+        const dayAux = (day < 10) ? '0' : ''
+
+        const month = date.getMonth() + 1
+        const monthAux = (month < 10) ? '0' : ''
+
+        const year = date.getFullYear()
+
+        const baseUrl = 'https://raw.githubusercontent.com/josepdecid/ecoluz/main/data/processed'
+        const fileUrl = `${baseUrl}/${dayAux}${day}_${monthAux}${month}_${year}.json`
 
         axios.get(fileUrl)
             .then(res => {
-                dispatch(updatePricesData(res.data));
+                const rates = res.data;
+                localStorage.setItem('rates', JSON.stringify(rates))
+                dispatch(updatePricesData(rates));
                 setLoaded(true);
             })
             .catch(err => {
