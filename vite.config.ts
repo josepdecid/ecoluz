@@ -1,9 +1,20 @@
 import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vite'
+import path from 'path'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   base: '/ecoluz/',
+  resolve: {
+    alias: {
+      'tailwind.config.js': path.resolve(__dirname, 'tailwind.config.js'),
+    }
+  },
+  optimizeDeps: {
+    include: [
+      'tailwind.config.js',
+    ]
+  },
   plugins: [
     react(),
     VitePWA({

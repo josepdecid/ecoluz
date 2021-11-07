@@ -1,6 +1,7 @@
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/solid'
 import { IRatesData, ISlotData } from '../../../helpers/interfaces'
 
+import TodayChart from '../../charts/TodayChart'
 import { classNames } from '../../../helpers/constants'
 import { formatTime } from '../../../helpers/time'
 import { useAppSelector } from '../../../reducers/store'
@@ -58,6 +59,10 @@ export default function RatesTable(props: any) {
                     </div>
                 )
             })}
+            
+            <div className="mt-5">
+                <TodayChart />
+            </div>
         </div >
     )
 }
