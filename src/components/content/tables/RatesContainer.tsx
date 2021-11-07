@@ -1,5 +1,6 @@
 import RatesTable from './RatesTable'
 import Tabs from '../../misc/Tabs'
+import TodayChart from '../../charts/TodayChart'
 import { getColorByIndex } from '../../../helpers/time'
 import { useAppSelector } from '../../../reducers/store'
 import { useTranslation } from 'react-i18next'
@@ -60,6 +61,10 @@ export default function RatesContainer() {
                     </span>
                     <RatesTable rates={ratesByPrice} thresholds={thresholdPrices} />
                 </div>
+            </div>
+
+            <div className="hidden md:flex">
+                <TodayChart />
             </div>
         </>
     )

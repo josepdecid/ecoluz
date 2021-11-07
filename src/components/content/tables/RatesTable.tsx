@@ -60,7 +60,7 @@ export default function RatesTable(props: any) {
                 )
             })}
             
-            <div className="mt-5">
+            <div className="mt-5 md:hidden">
                 <TodayChart />
             </div>
         </div >
