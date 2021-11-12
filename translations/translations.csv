@@ -1,18 +1,18 @@
 KEY,BA,CA,ES,GA
 
-APP_NAME,,EcoLlum,EcoLuz,
+APP_NAME,EkoArgia,EcoLlum,EcoLuz,EcoLuz
 
-TEXT.EXTREME_EXPENSIVE,,Més cara,Más cara,
-TEXT.EXTREME_CHEAP,,Més barata,Más barata,
-TEXT.MEAN_PRICE,,Preu mitjà,Precio medio,
+TEXT.EXTREME_EXPENSIVE,Ordurik garestiena,L'hora més cara,La hora más cara,A hora máis cara
+TEXT.EXTREME_CHEAP,Ordurik merkeena,L'hora més barata,La hora más barata,A hora máis barata
+TEXT.MEAN_PRICE,Erdi prezioa,Preu mitjà,Precio medio,Medio prezo
 
-SETTINGS.TITLE,,Configuració,Configuración,
-SETTINGS.SELECT_LOCATION,,La teva ubicació,Tu ubicación,
-SETTINGS.SELECT_LANGUAGE,,Idioma de l'aplicació,Idioma de la aplicación,
-SETTINGS.SELECT_TIME_FORMAT,,Format de l'hora,Formato de la hora,
+SETTINGS.TITLE,Konfigurazioa,Configuració,Configuración,Configuración
+SETTINGS.SELECT_LOCATION,Zure kokapena,La teva ubicació,Tu ubicación,A súa localización
+SETTINGS.SELECT_LANGUAGE,Aplikazioaren hizkuntza,Idioma de l'aplicació,Idioma de la aplicación,Idioma da aplicación
+SETTINGS.SELECT_TIME_FORMAT,Denbora-formatua,Format horari,Formato horario,Formato horario
 
-LOCATION.PENINSULA_CANARIAS_BALEARES,,Península Canaries i Balears, Península Canarias y Baleares,
-LOCATION.CEUTA_MELILLA,,Ceuta i Melilla, Ceuta y Melilla,
+LOCATION.PENINSULA_CANARIAS_BALEARES,Penintsula Kanariarak eta Balearak,Península Canaries i Balears,Península Canarias y Baleares,Península Canarias e Baleares
+LOCATION.CEUTA_MELILLA,Ceuta eta Melilla,Ceuta i Melilla, Ceuta y Melilla,Ceuta e Melilla
 
-SORT.BY_HOUR,,Per hora,Por hora,
-SORT.BY_PRICE,,Per preu, Por precio,
+SORT.BY_HOUR,Ordua arabera,Per hora,Por hora,Por hora
+SORT.BY_PRICE,Prezioaren arabera,Per preu, Por precio,Por prezo
