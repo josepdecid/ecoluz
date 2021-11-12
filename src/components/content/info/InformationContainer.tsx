@@ -1,17 +1,19 @@
 import { ArrowCircleDownIcon, ArrowCircleUpIcon, PresentationChartLineIcon } from '@heroicons/react/outline'
-
+import Tabs from '../../misc/Tabs'
 import CurrentTimeInfo from './CurrentTimeInfo'
 import ExtremeHour from './ExtremeHour'
 import MeanPrice from './MeanPrice'
-import Tabs from '../../misc/Tabs'
+
 
 export default function InformationContainer() {
+    // Show everything side-by-side on tablet or larger
     return (
-        <div className="lg:flex lg:space-x-6">
+        <div className="px-4 bg-white md:pb-5 top-20 md:flex md:space-x-6">
             <div className="flex-2">
                 <CurrentTimeInfo />
             </div>
 
+            {/* Mobile layout for Mean, Max and Min prices*/}
             <div className="mt-4 md:hidden">
                 <Tabs tabs={[
                     {
@@ -32,7 +34,7 @@ export default function InformationContainer() {
                 ]} />
             </div>
 
-            <div className="flex-1 hidden space-x-4 md:flex">
+            <div className="flex-1 hidden space-x-10 md:flex">
                 <div className="flex-1 mt-10">
                     <MeanPrice />
                 </div>

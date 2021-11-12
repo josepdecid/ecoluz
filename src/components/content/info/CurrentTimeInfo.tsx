@@ -56,17 +56,17 @@ export default function CurrentTimeInfo() {
     const currentTimeBackgroundColor = getColorByIndex(ratesByPrice.indexOf(currentRate))
 
     return (
-        <div className={`p-6 rounded-lg shadow-2xl bg-${currentTimeBackgroundColor}-500`}>
+        <div className={`p-6 rounded-lg shadow-2xl md:shadow-xl bg-${currentTimeBackgroundColor}-500`}>
             <div className="float-left p-4 bg-white border border-white rounded-lg w-max">
                 <span className="text-2xl font-bold lg:text-4xl">
                     {currentTime}
                 </span>
             </div>
             <div className="p-4 mt-4 text-right bg-white border border-white rounded-lg">
-                <span className="text-5xl font-bold lg:text-8xl">
+                <span className="text-5xl font-bold md:text-6xl">
                     {currentRate.price[state.locationCode].toFixed(4)}
                 </span>
-                <span className="text-2xl lg:text-4xl align-right">
+                <span className="text-lg align-right">
                     €/kWh
                 </span>
             </div>

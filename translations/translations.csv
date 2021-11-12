@@ -2,8 +2,8 @@ KEY,BA,CA,ES,GA
 
 APP_NAME,,EcoLlum,EcoLuz,
 
-TEXT.EXTREME_EXPENSIVE,,L'hora més cara,La hora más cara,
-TEXT.EXTREME_CHEAP,,L'hora més barata,La hora más barata,
+TEXT.EXTREME_EXPENSIVE,,Més cara,Más cara,
+TEXT.EXTREME_CHEAP,,Més barata,Más barata,
 TEXT.MEAN_PRICE,,Preu mitjà,Precio medio,
 
 SETTINGS.TITLE,,Configuració,Configuración,

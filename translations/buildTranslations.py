@@ -2,7 +2,7 @@ import csv
 import json
 import os
 
-with open('translations/translations.csv', mode='r') as csvfile:
+with open('translations/translations.csv', mode='r', encoding='utf-8-sig') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     
     header = next(reader)

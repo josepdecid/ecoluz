@@ -38,19 +38,19 @@ export default function ExtremeHour(props: any) {
                 {t(text)}:
             </span>
             <div className="pt-6">
-                <span className="text-4xl font-bold text-teal-500">
+                <div className={`mb-1 ${fontColor}`}>
+                    <span className="text-4xl font-bold">
+                        {extremeHour.price[settings.location].toFixed(4)}
+                    </span>
+                    <span className="text-lg">
+                        €/kWh
+                    </span>
+                </div>
+                <span className="text-3xl font-bold text-teal-500">
                     {formatTime(extremeHour.hour, -1, settings.timeFormat)}
                     &nbsp;-&nbsp;
                     {formatTime(extremeHour.hour + 1, -1, settings.timeFormat)}
                 </span>
-                <div className={`mt-3 ${fontColor}`}>
-                    <span className="text-3xl font-bold">
-                        {extremeHour.price[settings.location].toFixed(4)}
-                    </span>
-                    <span className="text-2xl">
-                        €/kWh
-                    </span>
-                </div>
             </div>
         </div>
     );

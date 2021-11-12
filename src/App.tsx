@@ -24,7 +24,7 @@ export default function App() {
     const blurredIfSettingsOpen = state.settingsOpen ? 'filter blur-sm' : ''
 
     return (
-        <>
+        <div>
             <div className={blurredIfSettingsOpen}>
                 <AppBar />
                 <Content />
@@ -32,6 +32,6 @@ export default function App() {
             <Drawer isOpen={state.settingsOpen} setIsOpen={() => dispatch(toggleSettingsDrawer())}>
                 <Settings />
             </Drawer>
-        </>
+        </div>
     );
 }

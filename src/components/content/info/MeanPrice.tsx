@@ -24,7 +24,7 @@ export default function MeanPrice() {
                     <span className="text-4xl font-bold">
                         {meanPrice.toFixed(4)}
                     </span>
-                    <span className="text-3xl">
+                    <span className="text-lg">
                         €/kWh
                     </span>
                 </div>

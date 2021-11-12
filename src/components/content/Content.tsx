@@ -59,7 +59,7 @@ export default function Content() {
 
     else {
         return (
-            <div className="w-screen px-4 pt-20 pb-4">
+            <div className="w-screen pt-20 pb-4">
                 <InformationContainer />
                 <RatesContainer />
             </div>
