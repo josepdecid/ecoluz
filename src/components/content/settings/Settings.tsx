@@ -7,7 +7,7 @@ import { XCircleIcon } from '@heroicons/react/outline';
 import { useTranslation } from 'react-i18next';
 
 export default function Settings() {
-    const { t } = useTranslation('translation');
+    const { t } = useTranslation('translation')
 
     const dispatch = useAppDispatch();
     const state = useAppSelector(({ settings }) => ({

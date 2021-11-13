@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from './reducers/store'
 import AppBar from './components/appbar/AppBar'
 import Content from './components/content/Content'
 import Drawer from './components/misc/Drawer'
+import Footer from './components/footer/Footer'
 import Settings from './components/content/settings/Settings'
 import { toggleSettingsDrawer } from './actions/settingsActions'
 import { useEffect } from 'react'
@@ -28,6 +29,7 @@ export default function App() {
             <div className={blurredIfSettingsOpen}>
                 <AppBar />
                 <Content />
+                {/*<Footer />*/}
             </div>
             <Drawer isOpen={state.settingsOpen} setIsOpen={() => dispatch(toggleSettingsDrawer())}>
                 <Settings />

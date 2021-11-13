@@ -2,7 +2,7 @@ import csv
 import json
 import os
 
-with open('translations/translations.csv', mode='r', encoding='utf-8-sig') as csvfile:
+with open('translations/translations.csv', mode='r', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     
     header = next(reader)
@@ -34,5 +34,5 @@ with open('translations/translations.csv', mode='r', encoding='utf-8-sig') as cs
     for lang in languages:
         data = json.dumps(result_translations[lang])
 
-        with open(os.path.join('translations', 'build', lang.lower() + '.json'), mode='w') as output_file:
+        with open(os.path.join('translations', 'build', lang.lower() + '.json'), mode='w', encoding='utf-8') as output_file:
             output_file.write(data)
