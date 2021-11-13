@@ -107,17 +107,17 @@ define("./sw.js",['./workbox-5977a184'], (function (workbox) { 'use strict';
    */
 
   workbox.precacheAndRoute([{
-    "url": "assets/index.1528e131.js",
-    "revision": "4408a6471881aac090a2455daab13c31"
-  }, {
     "url": "assets/index.156efed8.css",
     "revision": "bb63e36870e3c11f60e2d48c741286f9"
   }, {
-    "url": "assets/vendor.3545c325.js",
+    "url": "assets/index.cec0dddf.js",
+    "revision": "7272834bd940415e0f591371d4ecc096"
+  }, {
+    "url": "assets/vendor.816f660d.js",
     "revision": "aaed8e13abde4b3954266134e63184f8"
   }, {
     "url": "index.html",
-    "revision": "17fd7906ec5365b5d0195dcd4795da36"
+    "revision": "a99f8bcdaab6e2e90ee021d5a7076ab0"
   }, {
     "url": "registerSW.js",
     "revision": "6749a47017a0844da7f418b2ead1112b"
