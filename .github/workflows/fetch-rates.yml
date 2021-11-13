@@ -10,8 +10,10 @@ jobs:
         uses: denoland/setup-deno@main
         with:
           deno-version: v1.x
+
       - name: Check out repo
         uses: actions/checkout@v2
+
       - name: Fetch data
         uses: githubocto/flat@v3
         with:

@@ -1,0 +1,15 @@
+name: Deploy EcoLuz
+on: push
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+
+      - name: Build translations
+        run: python3 ./translations/buildTranslations.py
+      
+      - name: Deploy website
+        run: yarn deploy
