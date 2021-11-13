@@ -2,10 +2,10 @@ name: Deploy EcoLuz
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo 🛎️
