@@ -14,5 +14,10 @@ jobs:
       - name: Build translations
         run: python3 ./translations/buildTranslations.py
 
+      - name: Setup GitHub identity
+        run: |
+          git config user.email "josep.de.cid@gmail.com"
+          git config user.name "Josep de Cid" 
+
       - name: Deploy website
         run: yarn deploy
