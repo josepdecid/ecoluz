@@ -8,8 +8,11 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
 
+      - name: Install dependencies
+        run: yarn install --dev
+
       - name: Build translations
         run: python3 ./translations/buildTranslations.py
-      
+
       - name: Deploy website
         run: yarn deploy
