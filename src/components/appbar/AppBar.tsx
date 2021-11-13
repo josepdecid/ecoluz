@@ -5,7 +5,7 @@ export default function AppBar() {
     const { t } = useTranslation('translation');
 
     return (
-        <nav className="fixed z-10 flex items-center justify-between w-full p-3 bg-teal-500">
+        <nav className="fixed z-20 flex items-center justify-between w-full p-3 bg-teal-500">
             <div className="flex items-center flex-shrink-0 mr-6 text-white">
                 <img
                     src="/ecoluz/favicon.ico" alt={`${t('APP_NAME')} logo`}
