@@ -1,14 +1,14 @@
-import { useTranslation } from 'react-i18next'
+import RatesTable from './RatesTable'
+import Tabs from '../../misc/Tabs'
+import TodayChart from '../../charts/TodayChart'
 import { getColorByIndex } from '../../../helpers/time'
 import { useAppSelector } from '../../../reducers/store'
-import TodayChart from '../../charts/TodayChart'
-import Tabs from '../../misc/Tabs'
-import RatesTable from './RatesTable'
+import { useTranslation } from 'react-i18next'
 
 const renderTable = (title: string, rates: any, thresholds: any) => {
     return (
-        <div className="space-y-2 text-center">
-            <div className="sticky w-full p-4 text-lg font-bold uppercase bg-white top-16">
+        <div className="flex-1 p-3 space-y-2 text-center ">
+            <div className="sticky z-10 w-full p-4 text-lg font-bold uppercase bg-white rounded-b-lg shadow-sm top-16">
                 {title}:
             </div>
             <RatesTable rates={rates} thresholds={thresholds} />
@@ -59,16 +59,14 @@ export default function RatesContainer() {
             </div>
 
             {/* Desktop View */}
-            <div className="self-start hidden mt-4 md:flex">
-                <div className="flex flex-1 divide-x divide-gray divide-opacity-50">
+            <div className="self-start hidden mx-auto mt-4 md:block lg:flex">
+                <div className="flex flex-1">
                     {renderTable(t('SORT.BY_HOUR'), ratesByHour, thresholdPrices)}
                     {renderTable(t('SORT.BY_PRICE'), ratesByPrice, thresholdPrices)}
                 </div>
 
-                <div className="flex-grow">
-                    <div className="sticky w-3/4 ml-4 top-24">
+                <div className="sticky mt-4 top-16">
                     <TodayChart />
-                    </div>
                 </div>
             </div>
         </div>

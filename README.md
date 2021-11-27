@@ -12,7 +12,7 @@ It is mainly built with [ReactJS](https://reactjs.org/) and [TailwindCSS](https:
 
 ## Contributing: working in local
 
-You can help to improve this website, either by creating some issues for possible enhancements or contributing to the code by cloning the repository and creating a pull request with the changes.
+You can help to improve this website, either by creating some issues for possible enhancements or contributing to the code by cloning the repository and creating a pull request with the changes. The `main` branch is a protected branch that is only used to deploy stable versions. Therefore, all the WIP must be done in the `development` branch and it will be merged into `main` when everything is working fine.
 
 ### Setting up the environment
 
