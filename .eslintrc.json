@@ -34,12 +34,5 @@
                 "avoidEscape": true
             }
         ]
-    },
-    "overrides": [
-      {
-        "files": [
-          "src/**/*"
-        ]
-      }
-    ]
+    }
 }
