@@ -1,13 +1,13 @@
-import { CheckIcon } from '@heroicons/react/outline'
+import { CheckIcon } from '@heroicons/react/outline';
 import { IRadioInputProps } from '../../helpers/interfaces';
-import { RadioGroup } from '@headlessui/react'
+import { RadioGroup } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 
 export default function RadioInput(props: IRadioInputProps) {
-    const { title, translate, items, value, onChange } = props
-    const { t } = useTranslation()
-    
-    return (
+  const { title, translate, items, value, onChange } = props;
+  const { t } = useTranslation();
+
+  return (
         <RadioGroup value={value} onChange={onChange}>
             <RadioGroup.Label>
                 {t(title)}
@@ -18,7 +18,7 @@ export default function RadioInput(props: IRadioInputProps) {
                         key={code}
                         value={code}
                         className={({ active, checked }) =>
-                            `${checked ? 'bg-teal-500 bg-opacity-75 text-white' : 'bg-white'}
+                          `${checked ? 'bg-teal-500 bg-opacity-75 text-white' : 'bg-white'}
                             relative rounded-lg shadow-md px-5 py-4 cursor-pointer flex focus:outline-none`
                         }
                     >
@@ -29,7 +29,7 @@ export default function RadioInput(props: IRadioInputProps) {
                                         <RadioGroup.Label
                                             as="p"
                                             className={`font-medium  ${checked ? 'text-white' : 'text-gray-900'
-                                                }`}
+                                            }`}
                                         >
                                             {translate ? t(name) : name}
                                         </RadioGroup.Label>
@@ -46,5 +46,5 @@ export default function RadioInput(props: IRadioInputProps) {
                 ))}
             </div>
         </RadioGroup>
-    )
+  );
 }
