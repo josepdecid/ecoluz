@@ -10,13 +10,15 @@ jobs:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v2
 
-      - name: ⚙️ Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 17.2.0
+      - name: 🏷️ Read node from package.json
+        id: node-version-package-json
+        uses: culshaw/read-package-node-version-actions@v1
 
-      - name: 🔧 Install dependencies
-        run: yarn install --dev
+      - name: ⚙️ Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ steps.node-version-package-json.outputs.version }}
+          cache: 'npm'
 
       - name: 💅 Run linters
         run: yarn run eslint src --ext .js,.jsx,.ts,.tsx
