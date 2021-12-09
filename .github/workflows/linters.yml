@@ -19,4 +19,4 @@ jobs:
         run: yarn install --dev
 
       - name: 💅 Run linters
-        run: eslint src --ext .js,.jsx,.ts,.tsx
+        run: yarn run eslint src --ext .js,.jsx,.ts,.tsx
