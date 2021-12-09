@@ -1,0 +1,22 @@
+name: Run Linters
+on: push
+
+jobs:
+  run-linters:
+    name: Build and Deploy EcoLuz
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Check out repo
+        uses: actions/checkout@v2
+
+      - name: ⚙️ Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17.2.0
+
+      - name: 🔧 Install dependencies
+        run: yarn install --dev
+
+      - name: 💅 Run linters
+        run: yarn run eslint src --ext .js,.jsx,.ts,.tsx
