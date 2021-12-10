@@ -18,7 +18,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ steps.node-version.outputs.version }}
-          cache: 'npm'
 
       # TODO: Install ONLY eslint dependency (extract version from package json)
       - name: 🔧 Install dependencies
