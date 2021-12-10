@@ -20,5 +20,9 @@ jobs:
           node-version: ${{ steps.node-version.outputs.version }}
           cache: 'npm'
 
+      # TODO: Install ONLY eslint dependency (extract version from package json)
+      - name: 🔧 Install dependencies
+        run: yarn install --dev
+
       - name: 💅 Run linters
         run: yarn run eslint src --ext .js,.jsx,.ts,.tsx
