@@ -12,7 +12,7 @@ jobs:
 
       - name: 🏷️ Read node from package.json
         id: node-version
-        uses: josepdecid/get-nodejs-version-action@v0.0.2-alpha
+        uses: josepdecid/get-nodejs-version-action@v0.0.3-alpha
 
       - name: ⚙️ Set up Node.js
         uses: actions/setup-node@v2
