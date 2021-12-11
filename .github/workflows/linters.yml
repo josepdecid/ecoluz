@@ -7,19 +7,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🛎️ Check out repo
+      - name: Check out the repository
         uses: actions/checkout@v2
 
-      - name: 🏷️ Read node from package.json
-        id: node-version
-        uses: josepdecid/get-nodejs-version-action@v0.0.3-alpha
+      - name: Get NodeJS version
+        uses: josepdecid/get-nodejs-version@v1.0.0
+        id: get-node-version
 
-      - name: ⚙️ Set up Node.js
+      - name: Set up NodeJS
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ steps.node-version.outputs.version }}
+          node-version: ${{ steps.get-node-version.outputs.version }}
 
-      # TODO: Install ONLY eslint dependency (extract version from package json)
+      # TODO: Maybe install ONLY eslint dependency (extract version from package json)
       - name: 🔧 Install dependencies
         run: yarn install --dev
 
