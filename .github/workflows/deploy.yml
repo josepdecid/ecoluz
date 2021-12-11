@@ -8,19 +8,28 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 🛎️ Check out repo
+      - name: 🛎️ - Check out repo
         uses: actions/checkout@v2
 
-      - name: 🔧 Install dependencies
+      - name: 🏷️ - Get NodeJS version
+        uses: josepdecid/get-nodejs-version@v1.0.0
+        id: get-node-version
+
+      - name: ⚙️ - Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: { { steps.get-node-version.outputs.version } }
+
+      - name: 🔧 - Install dependencies
         run: yarn install --dev
 
-      - name: 🈸 Build translations
+      - name: 🈸 - Build translations
         run: python3 ./translations/buildTranslations.py
 
-      - name: 📦 Bundle for production
+      - name: 📦 - Bundle for production
         run: yarn build
 
-      - name: 🚀 Deploy
+      - name: 🚀 - Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
