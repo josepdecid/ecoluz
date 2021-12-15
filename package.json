@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview",
-    "deploy": "./deploy.sh"
+    "serve": "vite preview"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
