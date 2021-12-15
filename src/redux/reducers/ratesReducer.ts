@@ -1,9 +1,9 @@
-import { Action, IRatesData } from '../../helpers/interfaces';
 import { AnyAction, Reducer } from 'redux';
+import { Action, IRatesData } from '../../helpers/interfaces';
 import {
   UPDATE_CURRENT_DAY,
   UPDATE_CURRENT_HOUR,
-  UPDATE_PRICES_DATA,
+  UPDATE_PRICES_DATA
 } from '../actions/pricesActions';
 
 export interface IPricesReducerState {
@@ -15,7 +15,7 @@ export interface IPricesReducerState {
 const defaultState = {
   slots: [],
   currentHour: new Date().getHours(),
-  currentDay: new Date().getDate(),
+  currentDay: new Date().getDate()
 } as IPricesReducerState;
 
 const pricesReducer: Reducer<IPricesReducerState, AnyAction> = (

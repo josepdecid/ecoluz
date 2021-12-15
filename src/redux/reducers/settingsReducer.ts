@@ -1,12 +1,12 @@
 import { AnyAction, Reducer } from 'redux';
+import { LanguageID, LocationID, TimeFormat } from '../../helpers/constants';
 import {
   LOAD_SAVED_SETTINGS,
   SET_LANGUAGE,
   SET_LOCATION,
   SET_TIME_FORMAT,
-  TOGGLE_SETTINGS_DRAWER,
+  TOGGLE_SETTINGS_DRAWER
 } from '../actions/settingsActions';
-import { LanguageID, LocationID, TimeFormat } from '../../helpers/constants';
 
 interface ISettingsReducerState {
   location: string;
@@ -19,7 +19,7 @@ const defaultState = {
   location: LocationID.PCB,
   language: LanguageID.es,
   timeFormat: TimeFormat['24h'],
-  settingsOpen: false,
+  settingsOpen: false
 } as ISettingsReducerState;
 
 const getOrDefault = (
@@ -49,7 +49,7 @@ const settingsReducer: Reducer<ISettingsReducerState> = (
         ...state,
         language: getOrDefault(action.languageCode, 'language'),
         location: getOrDefault(action.locationCode, 'location'),
-        timeFormat: getOrDefault(action.timeFormat, 'timeFormat'),
+        timeFormat: getOrDefault(action.timeFormat, 'timeFormat')
       };
 
     default:

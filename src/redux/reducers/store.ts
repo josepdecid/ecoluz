@@ -8,8 +8,8 @@ import settingsReducer from './settingsReducer';
 export const store = configureStore({
   reducer: {
     rates: ratesReducer,
-    settings: settingsReducer,
-  },
+    settings: settingsReducer
+  }
 });
 
 store.dispatch(loadSavedSettings());

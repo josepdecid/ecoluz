@@ -12,7 +12,7 @@ const numberNames = [
   'nine',
   'ten',
   'eleven',
-  'twelve',
+  'twelve'
 ];
 
 export const formatTime = (

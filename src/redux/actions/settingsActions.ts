@@ -32,6 +32,6 @@ export function loadSavedSettings() {
     type: LOAD_SAVED_SETTINGS,
     languageCode,
     locationCode,
-    timeFormat,
+    timeFormat
   };
 }
