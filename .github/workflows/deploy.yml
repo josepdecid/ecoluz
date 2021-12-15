@@ -38,7 +38,7 @@ jobs:
       - name: ⚙️ - Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: { { steps.get-node-version.outputs.version } }
+          node-version: ${{ steps.get-node-version.outputs.version }}
 
       - name: 🔧 - Install dependencies
         run: yarn install --dev
