@@ -5,7 +5,30 @@ on:
       - main
 
 jobs:
+  run-linters:
+    name: Run Linters to check the styles
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️ - Check out the repository
+        uses: actions/checkout@v2
+
+      - name: 🏷️ - Get NodeJS version
+        uses: josepdecid/get-nodejs-version@v1.0.0
+        id: get-node-version
+
+      - name: ⚙️ - Set up NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ steps.get-node-version.outputs.version }}
+
+      - name: 🔧 - Install dependencies
+        run: yarn install --dev
+
+      - name: 💅 - Run linters
+        run: yarn run eslint src --ext .js,.jsx,.ts,.tsx
+
   build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: 🛎️ - Check out repo
