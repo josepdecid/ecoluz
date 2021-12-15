@@ -1,34 +1,31 @@
 import { ChartData, ChartOptions } from 'chart.js';
+import { FunctionComponent } from 'react';
 
 import { Line } from 'react-chartjs-2';
 import { getColorByIndex } from '../../../helpers/time';
-import { useAppSelector } from '../../../reducers/store';
+import { useAppSelector } from '../../../redux/reducers/store';
 
-// import resolveConfig from 'tailwindcss/resolveConfig'
-// import tailwindConfig from 'tailwind.config.js'
-
-export default function TodayChart() {
+const TodayChart: FunctionComponent = () => {
   const state = useAppSelector(({ rates, settings }) => ({
     hourlyRates: rates.slots,
-    locationCode: settings.location,
+    locationCode: settings.location
   }));
 
   const labels = Array.from(Array(24).keys());
   const hourlyRates = state.hourlyRates.map(
-    (rates) => rates.price[state.locationCode]
+    rates => rates.price[state.locationCode]
   );
 
-  // const themeColors = resolveConfig(tailwindConfig).theme.colors
   const themeColors = {
     red: { 500: '#ff4c30' },
     yellow: { 500: '#fde69c' },
-    green: { 500: '#70ad46' },
+    green: { 500: '#70ad46' }
   } as any;
 
   const ratesByPrice = [...state.hourlyRates].sort((a, b) =>
     a.price[state.locationCode] > b.price[state.locationCode] ? 1 : -1
   );
-  const ratesColors = state.hourlyRates.map((rate) => {
+  const ratesColors = state.hourlyRates.map(rate => {
     const colorName = getColorByIndex(ratesByPrice.indexOf(rate));
     return themeColors[colorName][500];
   });
@@ -41,9 +38,9 @@ export default function TodayChart() {
         fill: false,
         backgroundColor: ratesColors,
         borderColor: 'black',
-        tension: 0.2,
-      },
-    ],
+        tension: 0.2
+      }
+    ]
   } as ChartData<'line'>;
 
   const options = {
@@ -53,25 +50,27 @@ export default function TodayChart() {
           callback: function (value: any) {
             const secondDigit = value < 10 ? '0' : '';
             return secondDigit + value.toString() + 'h';
-          },
-        },
+          }
+        }
       },
       y: {
         title: {
           display: true,
-          text: '€/kWh',
-        },
-      },
+          text: '€/kWh'
+        }
+      }
     },
     plugins: {
       legend: {
-        display: false,
+        display: false
       },
       tooltip: {
-        enabled: false,
-      },
-    },
+        enabled: false
+      }
+    }
   } as ChartOptions<'line'>;
 
   return <Line data={data} options={options} />;
-}
+};
+
+export default TodayChart;

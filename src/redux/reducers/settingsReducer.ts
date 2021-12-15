@@ -6,7 +6,7 @@ import {
   SET_TIME_FORMAT,
   TOGGLE_SETTINGS_DRAWER,
 } from '../actions/settingsActions';
-import { LanguageID, LocationID, TimeFormat } from '../helpers/constants';
+import { LanguageID, LocationID, TimeFormat } from '../../helpers/constants';
 
 interface ISettingsReducerState {
   location: string;

@@ -9,7 +9,7 @@ interface DrawerProps {
 const Drawer: FunctionComponent<DrawerProps> = function Drawer({
   children,
   isOpen,
-  setIsOpen,
+  setIsOpen
 }) {
   const closeDrawer = () => setIsOpen(false);
 

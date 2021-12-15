@@ -1,14 +1,15 @@
 import {
   ArrowCircleDownIcon,
   ArrowCircleUpIcon,
-  PresentationChartLineIcon,
+  PresentationChartLineIcon
 } from '@heroicons/react/outline';
+import { FunctionComponent } from 'react';
 import Tabs from '../../misc/Tabs';
 import CurrentTimeInfo from './CurrentTimeInfo';
 import ExtremeHour from './ExtremeHour';
 import MeanPrice from './MeanPrice';
 
-export default function InformationContainer() {
+const InformationContainer: FunctionComponent = () => {
   return (
     <div className="px-4">
       {/* Mobile layout*/}
@@ -23,18 +24,18 @@ export default function InformationContainer() {
                 title: (
                   <PresentationChartLineIcon className="w-8 h-8 mx-auto" />
                 ),
-                content: <MeanPrice />,
+                content: <MeanPrice />
               },
               {
                 key: 'min',
                 title: <ArrowCircleDownIcon className="w-8 h-8 mx-auto" />,
-                content: <ExtremeHour extreme="min" />,
+                content: <ExtremeHour extreme="min" />
               },
               {
                 key: 'max',
                 title: <ArrowCircleUpIcon className="w-8 h-8 mx-auto" />,
-                content: <ExtremeHour extreme="max" />,
-              },
+                content: <ExtremeHour extreme="max" />
+              }
             ]}
           />
         </div>
@@ -52,4 +53,6 @@ export default function InformationContainer() {
       </div>
     </div>
   );
-}
+};
+
+export default InformationContainer;

@@ -1,21 +1,24 @@
+import { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ILocationID,
   IRatesData,
-  ITimeFormat,
+  ITimeFormat
 } from '../../../helpers/interfaces';
-
 import { formatTime } from '../../../helpers/time';
-import { useAppSelector } from '../../../reducers/store';
-import { useTranslation } from 'react-i18next';
+import { useAppSelector } from '../../../redux/reducers/store';
 
-export default function ExtremeHour(props: any) {
-  const { extreme } = props;
+interface ExtremeHourProps {
+  extreme: string;
+}
+
+const ExtremeHour: FunctionComponent<ExtremeHourProps> = ({ extreme }) => {
   const { t } = useTranslation();
 
   const rates = useAppSelector(({ rates }) => rates.slots) as IRatesData[];
   const settings = useAppSelector(({ settings }) => ({
     location: settings.location as ILocationID,
-    timeFormat: settings.timeFormat as ITimeFormat,
+    timeFormat: settings.timeFormat as ITimeFormat
   }));
 
   const extremeHour = rates.reduce((choice, rate) => {
@@ -57,4 +60,6 @@ export default function ExtremeHour(props: any) {
       </div>
     </div>
   );
-}
+};
+
+export default ExtremeHour;

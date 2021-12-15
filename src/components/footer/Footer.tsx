@@ -1,6 +1,7 @@
 import { CodeIcon, ExclamationCircleIcon } from '@heroicons/react/outline';
+import { FunctionComponent } from 'react';
 
-export default function Footer() {
+const Footer: FunctionComponent = () => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -30,4 +31,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

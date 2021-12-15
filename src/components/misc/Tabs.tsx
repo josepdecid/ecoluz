@@ -1,10 +1,18 @@
-import { ITabProps } from '../../helpers/interfaces';
 import { Tab } from '@headlessui/react';
 import { classNames } from '../../helpers/constants';
+import { FunctionComponent } from 'react';
 
-export default function Tabs(props: any) {
-  const { tabs }: { tabs: ITabProps[] } = props;
+interface TabProps {
+  title: any;
+  key: string;
+  content: any;
+}
 
+interface TabsProps {
+  tabs: TabProps[];
+}
+
+const Tabs: FunctionComponent<TabsProps> = ({ tabs }) => {
   return (
     <div className="shadow-2xl rounded-xl">
       <Tab.Group>
@@ -41,4 +49,6 @@ export default function Tabs(props: any) {
       </Tab.Group>
     </div>
   );
-}
+};
+
+export default Tabs;

@@ -1,4 +1,4 @@
-import { Action, IRatesData } from '../helpers/interfaces';
+import { Action, IRatesData } from '../../helpers/interfaces';
 import { AnyAction, Reducer } from 'redux';
 import {
   UPDATE_CURRENT_DAY,

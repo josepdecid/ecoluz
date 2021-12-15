@@ -1,14 +1,14 @@
+import { FunctionComponent, useEffect, useState } from 'react';
 import { formatTime, getColorByIndex } from '../../../helpers/time';
 import {
   updateCurrentDay,
-  updateCurrentHour,
-} from '../../../actions/pricesActions';
-import { useAppDispatch, useAppSelector } from '../../../reducers/store';
-import { useEffect, useState } from 'react';
+  updateCurrentHour
+} from '../../../redux/actions/pricesActions';
+import { useAppDispatch, useAppSelector } from '../../../redux/reducers/store';
 
 let timerInterval: any = null;
 
-export default function CurrentTimeInfo() {
+const CurrentTimeInfo: FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector(({ rates, settings }) => ({
     hourlyRates: rates.slots,
@@ -17,7 +17,7 @@ export default function CurrentTimeInfo() {
     currentDay: rates.currentDay,
 
     locationCode: settings.location,
-    timeFormat: settings.timeFormat,
+    timeFormat: settings.timeFormat
   }));
 
   const ratesByPrice = [...state.hourlyRates].sort((a, b) =>
@@ -31,7 +31,7 @@ export default function CurrentTimeInfo() {
 
   const getRateByTime = () => {
     const date = new Date();
-    return ratesByPrice.find((x) => x.hour === date.getHours())!;
+    return ratesByPrice.find(x => x.hour === date.getHours())!;
   };
 
   const [currentTime, setCurrentTime] = useState(getAndFormatTime());
@@ -76,4 +76,6 @@ export default function CurrentTimeInfo() {
       </div>
     </div>
   );
-}
+};
+
+export default CurrentTimeInfo;

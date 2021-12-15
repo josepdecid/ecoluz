@@ -1,4 +1,4 @@
-import { IRatesData } from '../helpers/interfaces';
+import { IRatesData } from '../../helpers/interfaces';
 
 export const UPDATE_PRICES_DATA = 'UPDATE_PRICES_DATA';
 

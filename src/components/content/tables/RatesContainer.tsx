@@ -1,9 +1,10 @@
-import RatesTable from './RatesTable';
+import { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
+import { getColorByIndex } from '../../../helpers/time';
+import { useAppSelector } from '../../../redux/reducers/store';
 import Tabs from '../../misc/Tabs';
 import TodayChart from '../charts/TodayChart';
-import { getColorByIndex } from '../../../helpers/time';
-import { useAppSelector } from '../../../reducers/store';
-import { useTranslation } from 'react-i18next';
+import RatesTable from './RatesTable';
 
 const renderTable = (title: string, rates: any, thresholds: any) => {
   return (
@@ -16,11 +17,11 @@ const renderTable = (title: string, rates: any, thresholds: any) => {
   );
 };
 
-export default function RatesContainer() {
+const RatesContainer: FunctionComponent = () => {
   const { t } = useTranslation();
   const state = useAppSelector(({ rates, settings }) => ({
     hourlyRates: rates.slots,
-    locationCode: settings.location,
+    locationCode: settings.location
   }));
 
   const ratesByLocation = state.hourlyRates.map(({ hour, price }) => {
@@ -30,18 +31,19 @@ export default function RatesContainer() {
   let ratesByPrice = [...ratesByLocation].sort((a, b) =>
     a.price > b.price ? 1 : -1
   );
-  ratesByPrice = ratesByPrice.map((rate) => {
+
+  const ratesByPriceWithColor = ratesByPrice.map(rate => {
     const color = getColorByIndex(ratesByPrice.indexOf(rate));
     return { ...rate, color };
   });
 
-  const ratesByHour = [...ratesByPrice].sort((a, b) =>
+  const ratesByHourWithColor = [...ratesByPriceWithColor].sort((a, b) =>
     a.hour > b.hour ? 1 : -1
   );
 
   const thresholdPrices = {
     min: ratesByPrice[2].price,
-    max: ratesByPrice[ratesByPrice.length - 3].price,
+    max: ratesByPrice[ratesByPrice.length - 3].price
   };
 
   return (
@@ -54,16 +56,22 @@ export default function RatesContainer() {
               key: 'hours',
               title: <span>{t('SORT.BY_HOUR')}</span>,
               content: (
-                <RatesTable rates={ratesByHour} thresholds={thresholdPrices} />
-              ),
+                <RatesTable
+                  rates={ratesByHourWithColor}
+                  thresholds={thresholdPrices}
+                />
+              )
             },
             {
               key: 'prices',
               title: <span>{t('SORT.BY_PRICE')}</span>,
               content: (
-                <RatesTable rates={ratesByPrice} thresholds={thresholdPrices} />
-              ),
-            },
+                <RatesTable
+                  rates={ratesByPriceWithColor}
+                  thresholds={thresholdPrices}
+                />
+              )
+            }
           ]}
         />
       </div>
@@ -71,8 +79,16 @@ export default function RatesContainer() {
       {/* Desktop View */}
       <div className="self-start hidden mx-auto mt-4 md:block lg:flex">
         <div className="flex flex-1">
-          {renderTable(t('SORT.BY_HOUR'), ratesByHour, thresholdPrices)}
-          {renderTable(t('SORT.BY_PRICE'), ratesByPrice, thresholdPrices)}
+          {renderTable(
+            t('SORT.BY_HOUR'),
+            ratesByHourWithColor,
+            thresholdPrices
+          )}
+          {renderTable(
+            t('SORT.BY_PRICE'),
+            ratesByPriceWithColor,
+            thresholdPrices
+          )}
         </div>
 
         <div className="sticky mt-4 top-16">
@@ -81,4 +97,6 @@ export default function RatesContainer() {
       </div>
     </div>
   );
-}
+};
+
+export default RatesContainer;

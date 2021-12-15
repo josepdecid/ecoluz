@@ -1,21 +1,21 @@
-import { useAppDispatch, useAppSelector } from './reducers/store';
+import { useAppDispatch, useAppSelector } from '../redux/reducers/store';
 
-import AppBar from './components/appbar/AppBar';
-import Content from './components/content/Content';
-import Drawer from './components/misc/Drawer';
-// import Footer from './components/footer/Footer';
-import Settings from './components/content/settings/Settings';
-import { toggleSettingsDrawer } from './actions/settingsActions';
-import { useEffect } from 'react';
+import AppBar from './appbar/AppBar';
+import Content from './content/Content';
+import Drawer from './misc/Drawer';
+
+import Settings from './appbar/Settings';
+import { toggleSettingsDrawer } from '../redux/actions/settingsActions';
+import { FunctionComponent, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function App() {
+const App: FunctionComponent = () => {
   const { i18n } = useTranslation();
 
   const dispatch = useAppDispatch();
   const state = useAppSelector(({ settings }) => ({
     settingsOpen: settings.settingsOpen,
-    language: settings.language,
+    language: settings.language
   }));
 
   useEffect(() => {
@@ -29,7 +29,6 @@ export default function App() {
       <div className={blurredIfSettingsOpen}>
         <AppBar />
         <Content />
-        {/*<Footer />*/}
       </div>
       <Drawer
         isOpen={state.settingsOpen}
@@ -39,4 +38,6 @@ export default function App() {
       </Drawer>
     </div>
   );
-}
+};
+
+export default App;

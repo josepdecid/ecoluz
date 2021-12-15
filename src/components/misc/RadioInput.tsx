@@ -1,10 +1,28 @@
-import { CheckIcon } from '@heroicons/react/outline';
-import { IRadioInputProps } from '../../helpers/interfaces';
 import { RadioGroup } from '@headlessui/react';
+import { CheckIcon } from '@heroicons/react/outline';
+import { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function RadioInput(props: IRadioInputProps) {
-  const { title, translate, items, value, onChange } = props;
+interface IRadioInputItems {
+  name: string;
+  code: string;
+}
+
+interface RadioInputProps {
+  title: string;
+  translate?: boolean;
+  items: IRadioInputItems[];
+  value: string;
+  onChange: (code: string) => void;
+}
+
+const RadioInput: FunctionComponent<RadioInputProps> = ({
+  title,
+  translate,
+  items,
+  value,
+  onChange
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -46,4 +64,6 @@ export default function RadioInput(props: IRadioInputProps) {
       </div>
     </RadioGroup>
   );
-}
+};
+
+export default RadioInput;

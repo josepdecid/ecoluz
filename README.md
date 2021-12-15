@@ -16,7 +16,7 @@ You can help to improve this website, either by creating some issues for possibl
 
 ### Setting up the environment
 
-It requires to install [NodeJS](https://nodejs.org/en/) (version v17.2.0). If NodeJS does come with the [Yarn](https://yarnpkg.com/) package manager already installed, do it manually.
+It requires to install [NodeJS](https://nodejs.org/en/) (version v16.13.0). If NodeJS does come with the [Yarn](https://yarnpkg.com/) package manager already installed, do it manually.
 Try to use **yarn** instead of **npm** to avoid conflicts with `yarn.lock` and `package-lock.json` files auto-generated using one or the other, respectively.
 You can check that everything works with the following commands (note that the versions can differ from the ones that you have installed):
 

@@ -1,15 +1,26 @@
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/solid';
-import { ISlotData } from '../../../helpers/interfaces';
 
 import TodayChart from '../charts/TodayChart';
 import { classNames } from '../../../helpers/constants';
 import { formatTime } from '../../../helpers/time';
-import { useAppSelector } from '../../../reducers/store';
+import { useAppSelector } from '../../../redux/reducers/store';
+import { FunctionComponent } from 'react';
 
-export default function RatesTable(props: any) {
-  const { rates, thresholds }: { rates: Array<ISlotData>; thresholds: any } =
-    props;
+interface SlotData {
+  hour: number;
+  price: number;
+  color: string;
+}
 
+interface RatesTableProps {
+  rates: SlotData[];
+  thresholds: any;
+}
+
+const RatesTable: FunctionComponent<RatesTableProps> = ({
+  rates,
+  thresholds
+}) => {
   const timeFormat = useAppSelector(({ settings }) => settings.timeFormat);
   const currentHour = useAppSelector(({ rates }) => rates.currentHour);
 
@@ -65,4 +76,6 @@ export default function RatesTable(props: any) {
       </div>
     </div>
   );
-}
+};
+
+export default RatesTable;

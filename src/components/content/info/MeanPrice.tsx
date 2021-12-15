@@ -1,13 +1,14 @@
-import { useAppSelector } from '../../../reducers/store';
+import { useAppSelector } from '../../../redux/reducers/store';
 import { useTranslation } from 'react-i18next';
+import { FunctionComponent } from 'react';
 
-export default function MeanPrice() {
+const MeanPrice: FunctionComponent = () => {
   const { t } = useTranslation();
 
   const rates = useAppSelector(({ rates }) => rates.slots);
   const settings = useAppSelector(({ settings }) => ({
     location: settings.location,
-    timeFormat: settings.timeFormat,
+    timeFormat: settings.timeFormat
   }));
 
   const sumPrices = rates.reduce(
@@ -30,4 +31,6 @@ export default function MeanPrice() {
       </div>
     </div>
   );
-}
+};
+
+export default MeanPrice;

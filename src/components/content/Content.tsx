@@ -1,13 +1,12 @@
-import { useAppDispatch, useAppSelector } from '../../reducers/store';
-import { useEffect, useState } from 'react';
-
+import axios from 'axios';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { IRatesData } from '../../helpers/interfaces';
+import { updatePricesData } from '../../redux/actions/pricesActions';
+import { useAppDispatch, useAppSelector } from '../../redux/reducers/store';
 import InformationContainer from './info/InformationContainer';
 import RatesContainer from './tables/RatesContainer';
-import axios from 'axios';
-import { updatePricesData } from '../../actions/pricesActions';
 
-export default function Content() {
+const Content: FunctionComponent = () => {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useAppDispatch();
   const currentDay = useAppSelector(({ rates }) => rates.currentDay) as number;
@@ -41,7 +40,7 @@ export default function Content() {
       console.log('Rates are not stored locally, downloading from ' + fileUrl);
       axios
         .get(fileUrl)
-        .then((res) => {
+        .then(res => {
           const rates = res.data;
 
           localStorage.setItem('rates', JSON.stringify(rates));
@@ -50,7 +49,7 @@ export default function Content() {
           dispatch(updatePricesData(rates));
           setLoaded(true);
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
           // TODO: Set message error if connection unavailable
         });
@@ -66,4 +65,6 @@ export default function Content() {
       </div>
     );
   }
-}
+};
+
+export default Content;
