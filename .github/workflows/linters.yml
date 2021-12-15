@@ -3,7 +3,7 @@ on: push
 
 jobs:
   run-linters:
-    name: Build and Deploy EcoLuz
+    name: Run Linters to check the styles
     runs-on: ubuntu-latest
 
     steps:
