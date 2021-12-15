@@ -20,8 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "exclude": [
-    "node_modules",
-    "**/*.test.ts"
+  "include": [
+    "**/*.tsx"
   ]
 }
