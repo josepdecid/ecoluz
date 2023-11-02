@@ -1,23 +1,23 @@
-name: Fetch Rates
-on:
-  schedule:
-    - cron: '30 22 * * *'
-jobs:
-  scheduled:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup deno
-        uses: denoland/setup-deno@main
-        with:
-          deno-version: v1.x
+# name: Fetch Rates
+# on:
+#   schedule:
+#     - cron: '30 22 * * *'
+# jobs:
+#   scheduled:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Setup deno
+#         uses: denoland/setup-deno@main
+#         with:
+#           deno-version: v1.x
 
-      - name: Check out repo
-        uses: actions/checkout@v2
+#       - name: Check out repo
+#         uses: actions/checkout@v2
 
-      - name: Fetch data
-        uses: githubocto/flat@v3
-        with:
-          http_url: https://api.esios.ree.es/archives/70/download_json
-          downloaded_filename: rates.json
-          authorization: ${{ secrets.API_TOKEN }}
-          postprocess: processRates.js
+#       - name: Fetch data
+#         uses: githubocto/flat@v3
+#         with:
+#           http_url: https://api.esios.ree.es/archives/70/download_json
+#           downloaded_filename: rates.json
+#           authorization: ${{ secrets.API_TOKEN }}
+#           postprocess: processRates.js
